@@ -6,7 +6,7 @@
 #    By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/27 18:17:42 by aburdeni          #+#    #+#              #
-#    Updated: 2018/11/05 18:52:44 by aburdeni         ###   ########.fr        #
+#    Updated: 2018/11/05 19:09:58 by aburdeni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ SRC = name.c
 
 OBJ = $(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 
-all: 
+all:
 	@make $(NAME)
 	@echo "\n\033[35mpush_swap\033[0m got $(NAME)"
 
