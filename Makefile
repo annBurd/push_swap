@@ -10,8 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME_FIRST = checker
-NAME_SECOND = push_swap
+NAME_CHECK = checker
+NAME = push_swap
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
@@ -23,14 +23,12 @@ LIBFT_DIR = ./libft/
 
 HEADER = $(addprefix $(INC_DIR), $(wildcard *.h))
 
-SRC = \
-	checker.c
+SRC_CHECK = checker.c
+SRC = name.c
 
 OBJ = $(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 
 all: 
-	@rm -rf $(OBJ_DIR)
-	@mkdir $(OBJ_DIR)
 	@make $(NAME)
 	@echo "\n\033[35mpush_swap\033[0m got $(NAME)"
 
