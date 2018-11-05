@@ -3,7 +3,7 @@ CMakeLists.txt
 cmake-build-debug/
 
 *.DS_Store
-*.a
+#*.a
 *.h.gch
 *.o
 a.out
