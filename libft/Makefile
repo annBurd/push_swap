@@ -19,6 +19,7 @@ RM = rm -rf
 SRC = ft_atoi.c \
 	ft_atoi_base.c \
 	ft_bzero.c \
+	ft_getline.c \
 	ft_isalnum.c \
 	ft_isalpha.c \
 	ft_isascii.c \
@@ -88,22 +89,24 @@ SRC = ft_atoi.c \
 	ft_strtrim.c \
 	ft_swap.c \
 	ft_tolower.c \
-	ft_toupper.c \
-	ft_getline.c
+	ft_toupper.c
  
 OBJ = $(SRC:.c=.o)
 
 $(NAME):
-	@$(CC) $(CFLAGS) -c ../inc/$(NAME:.a=.h) ../inc/ft_getline.h $(SRC)
+	@$(CC) $(CFLAGS) -c ../inc/$(NAME:.a=.h) $(SRC)
 	@ar rc $(NAME) $(OBJ)
 
 all: $(NAME)
+	@echo "got $(NAME)"
 
 clean:
 	@$(RM) $(OBJ)
+	@echo "libft cleaned"
 	
 fclean: clean
 	@$(RM) $(NAME)
+	@echo "libft fcleaned"
 
 re: fclean all
 

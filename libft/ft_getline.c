@@ -6,11 +6,11 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 18:06:10 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/02/15 18:14:13 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/05 18:53:00 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/get_next_line.h"
+#include "../inc/libft.h"
 
 static char	*check_fd(const int fd, t_fd **head)
 {

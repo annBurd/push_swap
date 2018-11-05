@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ssl.h                                           :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/27 19:28:09 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/10/27 19:28:12 by aburdeni         ###   ########.fr       */
+/*   Created: 2018/11/05 18:48:52 by aburdeni          #+#    #+#             */
+/*   Updated: 2018/11/05 18:48:52 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_SSH_H
-# define FT_PRINTF_H
+#ifndef PUSH_SWAP_H
+#define PUSH_SWAP_H
 
-# include "libft.h"
-# include "ft_getline.h"
+#include "libft.h"
+#include <stdio.h> //printf()
 
-# include <stdio.h>
 
-int		main(int argc, char **argv);
-
-void	ft_md5();
-void	ft_sha256();
 
 #endif
