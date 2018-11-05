@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   instruction.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 19:57:56 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/05 20:29:01 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/05 20:48:15 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@
 ** ss : sa and sb at the same time.
 */
 
-void	op_swap(t_tools stack, t_st which)
+void	do_swap(t_tools stack, t_st which)
 {
-
+	//ft_swap() ??
 }
 
 /*
@@ -35,7 +35,7 @@ void	op_swap(t_tools stack, t_st which)
 ** Do nothing if a is empty.
 */
 
-void	op_push(t_tools stack, t_st which)
+void	do_push(t_tools stack, t_st which)
 {
 
 }
@@ -50,7 +50,7 @@ void	op_push(t_tools stack, t_st which)
 ** rr : ra and rb at the same time.
 */
 
-void	op_rotate(t_tools stack, t_st which)
+void	do_rotate(t_tools stack, t_st which)
 {
 
 }
@@ -65,7 +65,7 @@ void	op_rotate(t_tools stack, t_st which)
 ** rrr : rra and rrb at the same time.
 */
 
-void	op_reverse_rotate(t_tools stack, t_st which)
+void	do_reverse_rotate(t_tools stack, t_st which)
 {
 
 }

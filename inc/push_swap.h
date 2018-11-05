@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 18:48:52 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/05 20:29:01 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/05 20:48:15 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,13 @@ typedef struct	s_tools
 
 void	checker();
 
-void	op_swap(t_tools stack, t_st which);
-void	op_push(t_tools stack, t_st which);
-void	op_rotate(t_tools stack, t_st which);
-void	op_reverse_rotate(t_tools stack, t_st which);
+int		validate_nums_in_arg(char **arg);
+
+
+void	do_swap(t_tools stack, t_st which);
+void	do_push(t_tools stack, t_st which);
+void	do_rotate(t_tools stack, t_st which);
+void	do_reverse_rotate(t_tools stack, t_st which);
 
 
 
