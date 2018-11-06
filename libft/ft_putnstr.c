@@ -14,9 +14,12 @@
 
 void	ft_putnstr(char const *s, size_t n)
 {
+	size_t	t;
+
 	if (!s)
 		return ;
-	if (ft_strlen(s) < n)
-		n = ft_strlen(s);
+	t = ft_strlen(s);
+	if (t < n)
+		n = t;
 	write(1, s, n);
 }
