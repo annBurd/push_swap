@@ -18,7 +18,7 @@
 
 typedef struct	s_stack
 {
-	int 		*ar;
+	int 		*stack;
 	int			top;
 	const int	size;
 }				t_stack;
