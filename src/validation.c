@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_tools.c                                      :+:      :+:    :+:   */
+/*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 20:40:05 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/07 15:45:16 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/07 19:52:56 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,33 @@
 **	- there are duplicates,
 **	- an instruction don’t exist and/or is incorrectly formatted.
 */
+
+int 	validate_instruction(char *s)
+{
+	if (ft_strequ(s, "sa"))
+		return (0);
+	else if (ft_strequ(s, "sb"))
+		return (1);
+	else if (ft_strequ(s, "ss"))
+		return (2);
+	else if (ft_strequ(s, "pa"))
+		return (3);
+	else if (ft_strequ(s, "pb"))
+		return (4);
+	else if (ft_strequ(s, "ra"))
+		return (5);
+	else if (ft_strequ(s, "rb"))
+		return (6);
+	else if (ft_strequ(s, "rr"))
+		return (7);
+	else if (ft_strequ(s, "rra"))
+		return (8);
+	else if (ft_strequ(s, "rrb"))
+		return (9);
+	else if (ft_strequ(s, "rrr"))
+		return (10);
+	return (-1);
+}
 
 int		ps_atoimax(const char *s, intmax_t *result)
 {
@@ -42,15 +69,6 @@ int		ps_atoimax(const char *s, intmax_t *result)
 	return (1);
 }
 
-//int	ps_free_stack(t_ps *stack)
-//{
-//	if (SA)
-//		free(SA);
-//	if (SB)
-//		free(SB);
-//	return (0);
-//}
-
 int		validate_duplicates(int *tab, int nbr, int n)
 {
 	int i;
@@ -65,28 +83,9 @@ int		validate_duplicates(int *tab, int nbr, int n)
 	return (1);
 }
 
-int		validate_nums_in_arg(t_ps *stack, int n, char **arg)
-{
-	intmax_t	t;
-
-	stack->size = n - 1;
-	SA = (int*)malloc(sizeof(int) * (stack->size));
-	TA = 0;
-	t = 0;
-	while (n > 0)
-	{
-		if (!ps_atoimax(arg[n], &t) || t > INT_MAX || t < INT_MIN ||
-			!validate_duplicates(SA, (int)t, TA))
-		{
-			write(2, "Error\n", 6);
-			free(SA);
-			return (0);
-		}
-		SA[TA] = (int)t;
-		n--;
-		TA++;
-	}
-	SB = (int*)malloc(sizeof(int) * (stack->size));
-	TB = 0;
-	return (1);
-}
+//int		validate_order(t_ps *stack)
+//{
+//	if (TB != -1 || TA != stack->size - 1)
+//		return (0);
+//	return (1);
+//}
