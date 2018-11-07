@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 18:29:47 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/07 19:10:00 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/07 19:31:41 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,53 @@ void	do_swap_both(t_ps *stack)
 
 void	do_rotate_both(t_ps *stack)
 {
+	int	tmp;
+	int n;
+	int top;
 
+	n = stack->size - 1;
+	top = stack->top[0];
+	while (n--)
+	{
+		tmp = stack->a[top];
+		stack->a[top] = stack->a[top - 1];
+		stack->a[top - 1] = tmp;
+		top--;
+	}
+	n = stack->size - 1;
+	top = stack->top[1];
+	while (n--)
+	{
+		tmp = stack->b[top];
+		stack->b[top] = stack->b[top - 1];
+		stack->b[top - 1] = tmp;
+		top--;
+	}
 }
 
 void	do_reverse_rotate_both(t_ps *stack)
 {
+	int tmp;
+	int n;
+	int top;
 
+	n = stack->size - 1;
+	top = 0;
+	while (n--)
+	{
+		tmp = stack->a[top];
+		stack->a[top] = stack->a[top + 1];
+		stack->a[top + 1] = tmp;
+		top++;
+	}
+	top = 0;
+	n = stack->size - 1;
+	while (n--)
+	{
+		tmp = stack->b[top];
+		stack->b[top] = stack->b[top + 1];
+		stack->b[top + 1] = tmp;
+		top++;
+	}
 }
 
