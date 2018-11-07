@@ -9,7 +9,9 @@ set(SOURCE_FILES
         inc/libft.h
         inc/push_swap.h
 
-        src/checker.c src/instruction.c src/stack_tools.c)
-link_directories(libft) # header directories
+        src/checker.c
+        src/instruction.c
+        src/stack_tools.c)
+link_directories(libft)
 add_executable(push_swap ${SOURCE_FILES})
 target_link_libraries(push_swap -lft) # linkage
