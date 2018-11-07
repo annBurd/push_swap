@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 19:04:34 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/07 19:57:12 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/07 19:59:59 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void		error_exit(void)
 	exit(0);
 }
 
-int				validate_nums_in_arg(t_ps *stack, int n, char **arg)
+int				validate_arg(t_ps *stack, int n, char **arg)
 {
 	intmax_t	t;
 
@@ -46,8 +46,8 @@ int				validate_nums_in_arg(t_ps *stack, int n, char **arg)
 	t = 0;
 	while (n > 0)
 	{
-		if (!ps_atoimax(arg[n], &t) || t > INT_MAX || t < INT_MIN ||
-				!validate_duplicates(stack->a, (int)t, stack->top[0]))
+		if (!validate_int(arg[n], &t) || t > INT_MAX || t < INT_MIN ||
+			!validate_duplicates(stack->a, (int)t, stack->top[0]))
 		{
 			free(stack->a);
 			error_exit();
@@ -69,7 +69,7 @@ int				main(int argc, char **argv)
 	int			i;
 
 	argc == 1 ? exit(0) : argv++;
-	if (validate_nums_in_arg(&stack, argc - 1, argv))
+	if (validate_arg(&stack, argc - 1, argv))
 	{
 		while (ft_getline(0, &line) > 0)
 		{

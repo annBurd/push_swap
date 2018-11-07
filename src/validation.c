@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 20:40:05 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/07 19:52:56 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/07 19:59:59 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int 	validate_instruction(char *s)
 	return (-1);
 }
 
-int		ps_atoimax(const char *s, intmax_t *result)
+int		validate_int(const char *s, intmax_t *result)
 {
 	short	 minus;
 

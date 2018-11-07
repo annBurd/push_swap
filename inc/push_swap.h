@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 18:48:52 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/07 19:52:55 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/07 20:03:40 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ void	push_swap();
 ** common
 */
 
-int		ps_atoimax(const char *s, intmax_t *result);
-int		validate_nums_in_arg(t_ps *stack, int n, char **arg);
+int		validate_arg(t_ps *stack, int n, char **arg);
+int		validate_int(const char *s, intmax_t *result);
 int		validate_duplicates(int *tab, int nbr, int n);
 int 	validate_instruction(char *s);
 int		validate_order(t_ps *stack);
