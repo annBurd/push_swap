@@ -5,57 +5,41 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/05 19:57:56 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/05 20:48:15 by aburdeni         ###   ########.fr       */
+/*   Created: 2018/11/07 18:29:47 by aburdeni          #+#    #+#             */
+/*   Updated: 2018/11/07 19:10:00 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
 /*
+** If no argument is given checker stops and displays nothing.
+**
+**
 ** sa : swap a - swap the first 2 elements at the top of stack a.
-** Do nothing if there is only one or no elements).
+** 		Do nothing if there is only one or no elements).
 **
 ** sb : swap b - swap the first 2 elements at the top of stack b.
-** Do nothing if there is only one or no elements).
+** 		Do nothing if there is only one or no elements).
 **
 ** ss : sa and sb at the same time.
-*/
-
-void	do_swap(t_ps *stack, t_st goal)
-{
-	//ft_swap() ??
-}
-
-/*
-** pa : push a - take the first element at the top of b and put it at the top of a.
-** Do nothing if b is empty.
 **
-** pb : push b - take the first element at the top of a and put it at the top of b.
-** Do nothing if a is empty.
-*/
-
-void	do_push(t_ps *stack, t_st goal)
-{
-
-}
-
-/*
+** pa : push a - take the first element at the top of b
+** 		and put it at the top of a.
+** 		Do nothing if b is empty.
+**
+** pb : push b - take the first element at the top of a
+** 		and put it at the top of b.
+** 		Do nothing if a is empty.
+**
 ** ra : rotate a - shift up all elements of stack a by 1.
-** The first element becomes the last one.
+** 		The first element becomes the last one.
 **
 ** rb : rotate b - shift up all elements of stack b by 1.
-** The first element becomes the last one.
+** 		The first element becomes the last one.
 **
 ** rr : ra and rb at the same time.
-*/
-
-void	do_rotate(t_ps *stack, t_st goal)
-{
-
-}
-
-/*
+**
 ** rra : reverse rotate a - shift down all elements of stack a by 1.
 ** The last element becomes the first one.
 **
@@ -65,7 +49,27 @@ void	do_rotate(t_ps *stack, t_st goal)
 ** rrr : rra and rrb at the same time.
 */
 
-void	do_reverse_rotate(t_ps *stack, t_st goal)
+void	do_swap_both(t_ps *stack)
+{
+	//	ft_swap(&stack->a[TA], &stack->a[TA - 1]);
+	//	ft_swap(&stack->b[TB], &stack->b[TB - 1]);
+	int	tmp;
+
+	tmp = stack->a[TA];
+	stack->a[TA] = stack->a[TA - 1];
+	stack->a[TA - 1] = tmp;
+	tmp = stack->b[TB];
+	stack->b[TB] = stack->b[TB - 1];
+	stack->b[TB - 1] = tmp;
+}
+
+void	do_rotate_both(t_ps *stack)
 {
 
 }
+
+void	do_reverse_rotate_both(t_ps *stack)
+{
+
+}
+
