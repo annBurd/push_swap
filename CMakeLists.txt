@@ -11,7 +11,9 @@ set(SOURCE_FILES
 
         src/checker.c
         src/instruction.c
-        src/stack_tools.c)
+        src/instruction_a.c
+        src/instruction_b.c
+        src/validation.c)
 link_directories(libft)
 add_executable(push_swap ${SOURCE_FILES})
 target_link_libraries(push_swap -lft) # linkage
