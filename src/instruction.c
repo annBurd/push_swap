@@ -22,7 +22,7 @@
 ** ss : sa and sb at the same time.
 */
 
-void	do_swap(t_tools stack, t_st which)
+void	do_swap(t_ps *stack, t_st goal)
 {
 	//ft_swap() ??
 }
@@ -35,7 +35,7 @@ void	do_swap(t_tools stack, t_st which)
 ** Do nothing if a is empty.
 */
 
-void	do_push(t_tools stack, t_st which)
+void	do_push(t_ps *stack, t_st goal)
 {
 
 }
@@ -50,7 +50,7 @@ void	do_push(t_tools stack, t_st which)
 ** rr : ra and rb at the same time.
 */
 
-void	do_rotate(t_tools stack, t_st which)
+void	do_rotate(t_ps *stack, t_st goal)
 {
 
 }
@@ -65,7 +65,7 @@ void	do_rotate(t_tools stack, t_st which)
 ** rrr : rra and rrb at the same time.
 */
 
-void	do_reverse_rotate(t_tools stack, t_st which)
+void	do_reverse_rotate(t_ps *stack, t_st goal)
 {
 
 }
