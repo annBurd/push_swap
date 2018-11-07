@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 18:48:52 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/07 20:03:40 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/07 20:55:20 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,15 @@
 #include "libft.h"
 #include "color.h"
 #include "limits.h"
+
 #include <stdio.h> //printf
 
-/*
-**	write
-**	read
-**	malloc
-**	free
-**	exit
-*/
+#define TA stack->top[0]
+#define TB stack->top[1]
 
-#define TA stack->top[0] //top of A
-#define TB stack->top[1] //top of B
-#define ERROR	write(2, "Error\n", 6); \
-				exit(0);
+/*
+** top[2] - current tops of A & B
+*/
 
 typedef struct	s_ps
 {
@@ -39,7 +34,7 @@ typedef struct	s_ps
 	int			size;
 }				t_ps;
 
-typedef void	(*instr)(t_ps *stack);
+typedef void	(*command)(t_ps *stack);
 
 /*
 ** checker
@@ -60,7 +55,7 @@ void	push_swap();
 int		validate_arg(t_ps *stack, int n, char **arg);
 int		validate_int(const char *s, intmax_t *result);
 int		validate_duplicates(int *tab, int nbr, int n);
-int 	validate_instruction(char *s);
+int 	validate_command(char *s);
 int		validate_order(t_ps *stack);
 
 void	do_swap_a(t_ps *stack);

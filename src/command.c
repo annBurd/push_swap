@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   instruction.c                                      :+:      :+:    :+:   */
+/*   command.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 18:29:47 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/07 19:31:41 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/07 20:55:08 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
 /*
-** If no argument is given checker stops and displays nothing.
-**
-**
 ** sa : swap a - swap the first 2 elements at the top of stack a.
 ** 		Do nothing if there is only one or no elements).
 **
@@ -41,10 +38,10 @@
 ** rr : ra and rb at the same time.
 **
 ** rra : reverse rotate a - shift down all elements of stack a by 1.
-** The last element becomes the first one.
+** 		The last element becomes the first one.
 **
 ** rrb : reverse rotate b - shift down all elements of stack b by 1.
-** The last element becomes the first one.
+** 		The last element becomes the first one.
 **
 ** rrr : rra and rrb at the same time.
 */

@@ -10,9 +10,9 @@ set(SOURCE_FILES
         inc/push_swap.h
 
         src/checker.c
-        src/instruction.c
-        src/instruction_a.c
-        src/instruction_b.c
+        src/command.c
+        src/command_a.c
+        src/command_b.c
         src/validation.c)
 link_directories(libft)
 add_executable(push_swap ${SOURCE_FILES})

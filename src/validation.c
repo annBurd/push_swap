@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 20:40:05 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/07 19:59:59 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/07 20:56:05 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 **	- an instruction don’t exist and/or is incorrectly formatted.
 */
 
-int 	validate_instruction(char *s)
+int 	validate_command(char *s)
 {
 	if (ft_strequ(s, "sa"))
 		return (0);
@@ -83,9 +83,45 @@ int		validate_duplicates(int *tab, int nbr, int n)
 	return (1);
 }
 
-//int		validate_order(t_ps *stack)
-//{
-//	if (TB != -1 || TA != stack->size - 1)
-//		return (0);
-//	return (1);
-//}
+int		validate_order(t_ps *stack)
+{
+	int	n;
+	int i;
+
+	if (stack->top[1] != -1 || stack->top[0] != stack->size - 1)
+		return (0);
+	n = stack->size - 1;
+	i = 0;
+	while (n--)
+	{
+		if (stack->a[i] < stack->a[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int						validate_arg(t_ps *stack, int n, char **arg)
+{
+	intmax_t	t;
+
+	stack->size = n;
+	stack->a = (int*)malloc(sizeof(int) * (stack->size));
+	stack->top[0] = 0;
+	t = 0;
+	while (n > 0)
+	{
+		if (!validate_int(arg[n], &t) || t > INT_MAX || t < INT_MIN ||
+			!validate_duplicates(stack->a, (int)t, stack->top[0]))
+		{
+			free(stack->a);
+			return (0);
+		}
+		stack->a[stack->top[0]] = (int)t;
+		n--;
+		stack->top[0]++;
+	}
+	stack->b = (int*)malloc(sizeof(int) * (stack->size));
+	stack->top[1] = -1;
+	return (1);
+}

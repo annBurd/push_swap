@@ -6,15 +6,15 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 19:04:34 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/07 19:59:59 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/07 20:55:11 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static instr	*get_instruction(void)
+static command			*get_command(void)
 {
-	static instr f[11];
+	static command	f[11];
 
 	f[0] = do_swap_a;
 	f[1] = do_swap_b;
@@ -30,50 +30,25 @@ static instr	*get_instruction(void)
 	return (f);
 }
 
-static void		error_exit(void)
+static inline void		error_exit(void)
 {
 	write(2, "Error\n", 6);
 	exit(0);
 }
 
-int				validate_arg(t_ps *stack, int n, char **arg)
+int						main(int argc, char **argv)
 {
-	intmax_t	t;
-
-	stack->size = n;
-	stack->a = (int*)malloc(sizeof(int) * (stack->size));
-	stack->top[0] = 0;
-	t = 0;
-	while (n > 0)
-	{
-		if (!validate_int(arg[n], &t) || t > INT_MAX || t < INT_MIN ||
-			!validate_duplicates(stack->a, (int)t, stack->top[0]))
-		{
-			free(stack->a);
-			error_exit();
-		}
-		stack->a[stack->top[0]] = (int)t;
-		n--;
-		stack->top[0]++;
-	}
-	stack->b = (int*)malloc(sizeof(int) * (stack->size));
-	stack->top[1] = -1;
-	return (1);
-}
-
-int				main(int argc, char **argv)
-{
-	t_ps		stack;
-	char		*line;
-	const instr *f = get_instruction();
-	int			i;
+	t_ps			stack;
+	char			*line;
+	const command	*f = get_command();
+	int				i;
 
 	argc == 1 ? exit(0) : argv++;
 	if (validate_arg(&stack, argc - 1, argv))
 	{
 		while (ft_getline(0, &line) > 0)
 		{
-			i = validate_instruction(line);
+			i = validate_command(line);
 			i < 0 ? error_exit() : f[i](&stack);
 		}
 		validate_order(&stack) ? write(2, "OK\n", 3) : write(2, "KO\n", 3);
@@ -81,5 +56,7 @@ int				main(int argc, char **argv)
 		free(stack.b);
 		free(line);
 	}
+	else
+		error_exit();
 	return (0);
 }
