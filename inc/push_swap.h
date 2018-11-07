@@ -23,7 +23,8 @@
 #define TB stack->top[1]
 
 /*
-** top[2] - current tops of A & B
+** top[0] - next one after current top of A stack
+** top[1] - current top of B stack
 */
 
 typedef struct	s_ps
@@ -59,15 +60,15 @@ int 	validate_command(char *s);
 int		validate_order(t_ps *stack);
 
 void	do_swap_a(t_ps *stack);
-void	do_push_a(t_ps *stack);
-void	do_rotate_a(t_ps *stack);
-void	do_reverse_rotate_a(t_ps *stack);
 void	do_swap_b(t_ps *stack);
-void	do_push_b(t_ps *stack);
-void	do_rotate_b(t_ps *stack);
-void	do_reverse_rotate_b(t_ps *stack);
 void	do_swap_both(t_ps *stack);
+void	do_push_a(t_ps *stack);
+void	do_push_b(t_ps *stack);
+void	do_rotate_a(t_ps *stack);
+void	do_rotate_b(t_ps *stack);
 void	do_rotate_both(t_ps *stack);
+void	do_reverse_rotate_a(t_ps *stack);
+void	do_reverse_rotate_b(t_ps *stack);
 void	do_reverse_rotate_both(t_ps *stack);
 
 #endif
