@@ -93,20 +93,19 @@ SRC = ft_atoi.c \
  
 OBJ = $(SRC:.c=.o)
 
+all: $(NAME)
+	@echo "got ""\033[2;36m""$(NAME)""\033[0m"
+
 $(NAME):
 	@$(CC) $(CFLAGS) -c ../inc/$(NAME:.a=.h) $(SRC)
 	@ar rc $(NAME) $(OBJ)
 
-all: $(NAME)
-	@echo "got $(NAME)"
-
 clean:
 	@$(RM) $(OBJ)
-	@echo "libft cleaned"
 	
 fclean: clean
 	@$(RM) $(NAME)
-	@echo "libft fcleaned"
+	@echo "\033[2;36m""libft""\033[0m"" was fcleaned"
 
 re: fclean all
 

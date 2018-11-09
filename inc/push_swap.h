@@ -22,11 +22,6 @@
 #define TA stack->top[0]
 #define TB stack->top[1]
 
-/*
-** top[0] - next one after current top of A stack
-** top[1] - current top of B stack
-*/
-
 typedef struct	s_ps
 {
 	int 		*a;
@@ -35,7 +30,7 @@ typedef struct	s_ps
 	int			size;
 }				t_ps;
 
-typedef void	(*command)(t_ps *stack);
+// typedef void	(*command)(t_ps *stack);
 
 /*
 ** checker
@@ -53,10 +48,12 @@ void	push_swap();
 ** common
 */
 
+void	print_stack(t_ps *stack);
+
 int		validate_arg(t_ps *stack, int n, char **arg);
 int		validate_int(const char *s, intmax_t *result);
 int		validate_duplicates(int *tab, int nbr, int n);
-int 	validate_command(char *s);
+int 	validate_command(char *s, t_ps *stack);
 int		validate_order(t_ps *stack);
 
 void	do_swap_a(t_ps *stack);

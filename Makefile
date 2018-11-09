@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME_CHECK = checker
-NAME = push_swap
+NAME_PS = push_swap
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
@@ -21,35 +21,45 @@ OBJ_DIR = ./obj/
 INC_DIR = ./inc/
 LIBFT_DIR = ./libft/
 
-HEADER = $(addprefix $(INC_DIR), $(wildcard *.h))
+LIBFT = $(LIBFT_DIR)libft.a
 
-SRC_CHECK = checker.c
-SRC = name.c
+HEADER = $(wildcard $(INC_DIR)*.h)
 
-OBJ = $(addprefix $(OBJ_DIR), $(SRC:.c=.o))
+SRC = checker.c \
+	command_a.c \
+	command_b.c \
+	command.c \
+	validation.c
+
+#OBJ = $(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 
 all:
-	@make $(NAME)
-	@echo "\n\033[35mpush_swap\033[0m got $(NAME)"
-
-$(NAME): $(OBJ)
 	@make -C $(LIBFT_DIR)
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT_DIR)*.o
+	@echo "start compilation""\033[2;35m"
+	@$(CC) $(CFLAGS) -I $(HEADER) -c $(addprefix $(SRC_DIR), $(SRC))
+	@make $(NAME_CHECK)
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c
-	@$(CC) $(CFLAGS) -I $(HEADER) -c $< -o $@
-	@echo -n ' <@>'
+$(NAME_CHECK):
+	@$(CC) $(CFLAGS) -o $(NAME_CHECK) $(OBJ) $(LIBFT)
+	@echo "\n\033[35mgot $(NAME_CHECK)\033[0m"
 
 clean:
-	@rm -rf $(OBJ)
+	@rm -rf *.o
 	@rm -rf $(INC_DIR)*.h.gch
 	@make -C $(LIBFT_DIR) clean
 	
 fclean:	
 	@make clean
-	@rm -rf $(NAME)
-	@rm -rf test_me
+	@rm -rf $(NAME_CHECK)
 	@make -C $(LIBFT_DIR) fclean
-	@echo "\033[35mpush_swap\033[0m was fcleaned"
+	@echo "\033[2;36m""push_swap""\033[0m"" was fcleaned"
 
-.PHONY: all clean fclean re libft.a
+re: fclean all
+
+.PHONY: all clean fclean re checker
+
+	#@make $(OBJ)
+
+# $(OBJ_DIR)%.o: $(SRC_DIR)%.c
+# 	@$(CC) $(CFLAGS) -I $(HEADER) -c $< -o $@
+# 	@echo -n ' <@>'

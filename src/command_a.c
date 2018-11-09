@@ -19,6 +19,7 @@ void	do_swap_a(t_ps *stack)
 	tmp = stack->a[TA];
 	stack->a[TA] = stack->a[TA - 1];
 	stack->a[TA - 1] = tmp;
+	print_stack(stack);
 }
 
 void	do_push_a(t_ps *stack)
@@ -27,6 +28,7 @@ void	do_push_a(t_ps *stack)
 	stack->b[TB] = stack->a[TA];
 //	stack->a[TA] = 0;
 	TA--;
+	print_stack(stack);
 }
 
 void	do_rotate_a(t_ps *stack)
@@ -44,6 +46,7 @@ void	do_rotate_a(t_ps *stack)
 		stack->a[top - 1] = tmp;
 		top--;
 	}
+	print_stack(stack);
 }
 
 void	do_reverse_rotate_a(t_ps *stack)
@@ -61,4 +64,5 @@ void	do_reverse_rotate_a(t_ps *stack)
 		stack->a[top + 1] = tmp;
 		top++;
 	}
+	print_stack(stack);
 }

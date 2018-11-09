@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 20:40:05 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/07 20:56:05 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/09 20:27:21 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 **	- an instruction don’t exist and/or is incorrectly formatted.
 */
 
-int 	validate_command(char *s)
+int 	validate_command(char *s, t_ps *stack)
 {
 	if (ft_strequ(s, "sa"))
 		return (0);
@@ -44,8 +44,10 @@ int 	validate_command(char *s)
 	else if (ft_strequ(s, "rrb"))
 		return (9);
 	else if (ft_strequ(s, "rrr"))
-		return (10);
-	return (-1);
+		do_reverse_rotate_both(stack);
+	else
+		return (-1);
+	return (1);
 }
 
 int		validate_int(const char *s, intmax_t *result)
@@ -53,12 +55,14 @@ int		validate_int(const char *s, intmax_t *result)
 	short	 minus;
 
 	minus = 1;
-	while (*s < 33)
+	if (*s == '-')
+	{
+		minus = -1;
 		s++;
-	if (*s == '-' || *s == '+')
-		(*s++ == '-') && (minus = -1);
+	}
 	if (*s < '0' || *s > '9')
 		return (0);
+	*result = 0;
 	while (*s)
 	{
 		if (*s < '0' || *s > '9')
@@ -105,7 +109,7 @@ int						validate_arg(t_ps *stack, int n, char **arg)
 {
 	intmax_t	t;
 
-	stack->size = n;
+	stack->size = n--;
 	stack->a = (int*)malloc(sizeof(int) * (stack->size));
 	stack->top[0] = 0;
 	t = 0;
