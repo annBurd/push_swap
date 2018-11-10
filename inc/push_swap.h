@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 18:48:52 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/10 18:14:58 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/10 19:18:24 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ typedef struct	s_ps
 	int 		*a;
 	int 		*b;
 	int			top[2];
-	int			size;
 }				t_ps;
 
 // typedef void	(*command)(t_ps *stack);
@@ -50,7 +49,7 @@ void	push_swap();
 
 void	print_stack(t_ps *stack);
 
-int		validate_arg(t_ps *stack, char **arg);
+int		validate_arg(t_ps *stack, char **arg, size_t size);
 int		validate_int(const char *s, intmax_t *result);
 int		validate_duplicates(int *tab, int nbr, int size);
 int 	validate_command(char *s, t_ps *stack);

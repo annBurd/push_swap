@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 19:04:34 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/10 21:52:06 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/10 21:54:12 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,7 @@ int				main(int argc, char **argv)
 	
 
 	argc == 1 ? exit(0) : argv++;
-	stack.size = argc - 1;
-	if (validate_arg(&stack, argv))
+	if (validate_arg(&stack, argv, argc - 1))
 	{
 		print_stack(&stack);
 		while (ft_getline(0, &line) > 0)

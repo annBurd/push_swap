@@ -54,15 +54,11 @@ void	do_swap_both(t_ps *stack)
 	int	tmp;
 
 	tmp = stack->a[TA];
-
-
-	
 	stack->a[TA] = stack->a[TA - 1];
 	stack->a[TA - 1] = tmp;
 	tmp = stack->b[TB];
 	stack->b[TB] = stack->b[TB - 1];
 	stack->b[TB - 1] = tmp;
-	print_stack(stack);
 
 //	do_swap_a(stack);
 //	do_swap_b(stack);
@@ -70,63 +66,59 @@ void	do_swap_both(t_ps *stack)
 
 void	do_rotate_both(t_ps *stack)
 {
-//	int	tmp;
-//	int n;
-//	int top;
-//
-//	n = stack->size - 1;
-//	top = stack->top[0];
-//	while (n--)
-//	{
-//		tmp = stack->a[top];
-//		stack->a[top] = stack->a[top - 1];
-//		stack->a[top - 1] = tmp;
-//		top--;
-//	}
-//	n = stack->size - 1;
-//	top = stack->top[1];
-//	while (n--)
-//	{
-//		tmp = stack->b[top];
-//		stack->b[top] = stack->b[top - 1];
-//		stack->b[top - 1] = tmp;
-//		top--;
-//	}
-//
-//	print_stack(stack);
+	int	tmp;
+	int n;
+	int top;
 
-	do_rotate_a(stack);
-	do_rotate_b(stack);
+	n = TA;
+	top = TA;
+	while (--n > 0)
+	{
+		tmp = stack->a[top];
+		stack->a[top] = stack->a[top - 1];
+		stack->a[top - 1] = tmp;
+		top--;
+	}
+	n = TB;
+	top = TB;
+	while (--n > 0)
+	{
+		tmp = stack->b[top];
+		stack->b[top] = stack->b[top - 1];
+		stack->b[top - 1] = tmp;
+		top--;
+	}
+
+//	do_rotate_a(stack);
+//	do_rotate_b(stack);
 }
 
 void	do_reverse_rotate_both(t_ps *stack)
 {
-//	int tmp;
-//	int n;
-//	int top;
-//
-//	n = stack->size - 1;
-//	top = 0;
-//	while (n--)
-//	{
-//		tmp = stack->a[top];
-//		stack->a[top] = stack->a[top + 1];
-//		stack->a[top + 1] = tmp;
-//		top++;
-//	}
-//	top = 0;
-//	n = stack->size - 1;
-//	while (n--)
-//	{
-//		tmp = stack->b[top];
-//		stack->b[top] = stack->b[top + 1];
-//		stack->b[top + 1] = tmp;
-//		top++;
-//	}
-//
-//	print_stack(stack);
+	int tmp;
+	int n;
+	int top;
 
-	do_reverse_rotate_a(stack);
-	do_reverse_rotate_b(stack);
+	n = TA;
+	top = TA;
+	while (--n > 0)
+	{
+		tmp = stack->a[top];
+		stack->a[top] = stack->a[top + 1];
+		stack->a[top + 1] = tmp;
+		top++;
+	}
+	n = TB;
+	top = TB;
+	while (--n > 0)
+	{
+		tmp = stack->b[top];
+		stack->b[top] = stack->b[top + 1];
+		stack->b[top + 1] = tmp;
+		top++;
+	}
+
+//	do_reverse_rotate_a(stack);
+//	do_reverse_rotate_b(stack);
 }
 
