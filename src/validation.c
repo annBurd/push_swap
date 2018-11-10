@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 20:40:05 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/10 19:18:51 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/10 21:49:22 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,13 +88,10 @@ int		validate_order(int *tab, int size)
 {
 	int i;
 
-	i = 0;
-	while (--size > 0)
-	{
+	i = -1;
+	while (++i < size)
 		if (tab[i] < tab[i + 1])
 			return (0);
-		i++;
-	}
 	return (1);
 }
 

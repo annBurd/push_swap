@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 19:04:34 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/10 21:45:06 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/10 21:52:06 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ void	print_stack(t_ps *stack)
 {
 	int	i;
 
-	i = -1;
-	printf("A: ");
-	while (++i <= TA)
-		printf("%d\t", stack->a[i]);
-	printf("\nB: ");
-	i = -1;
-	while (++i <= TB)
-		printf("%d\t", stack->b[i]);
+	i = TA;
+	printf("A:");
+	while (i >= 0)
+		printf(" %d", stack->a[i--]);
+	printf("\nB:");
+	i = TB;
+	while (i >= 0)
+		printf(" %d", stack->b[i--]);
 	printf("\n");
 }
 
