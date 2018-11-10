@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 19:04:34 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/10 21:54:12 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/10 23:26:01 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,51 +27,55 @@ void	print_stack(t_ps *stack)
 	printf("\n");
 }
 
-static void		error_exit(void)
+int		ps_exit(short code, t_ps *stack)
 {
-	write(2, "Error\n", 6);
-	exit(0);
+	if (!code)
+		exit(0);
+	else if (code == -1)
+	{
+		free(stack->a);
+		write(2, "Error\n", 6);
+		exit(0);
+	}
+	else if (code == -2)
+	{
+		free(stack->a);
+		free(stack->b);
+		free(stack->line);
+		write(2, "Error\n", 6);
+		exit(0);
+	}
+	else if (code == 1)
+	{
+		free(stack->a);
+		free(stack->b);
+		free(stack->line);
+	}
+	return (0);
 }
 
-// static void (*[11])(t_ps *)			*get_command()
-// {
-// 	static void	(*f[11])(t_ps*);
-
-// 	f[0] = do_swap_a;
-// 	f[1] = do_swap_b;
-// 	f[2] = do_swap_both;
-// 	f[3] = do_push_a;
-// 	f[4] = do_push_b;
-// 	f[5] = do_rotate_a;
-// 	f[6] = do_rotate_b;
-// 	f[7] = do_rotate_both;
-// 	f[8] = do_reverse_rotate_a;
-// 	f[9] = do_reverse_rotate_b;
-// 	// f[10] = do_reverse_rotate_both;
-// 	return (f);
-// }
-
-int				main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
-	t_ps			stack;
-	char			*line;
-	
-
-	argc == 1 ? exit(0) : argv++;
-	if (validate_arg(&stack, argv, argc - 1))
+	t_ps				stack;
+	static const cmd	f[11] =
 	{
-		print_stack(&stack);
-		while (ft_getline(0, &line) > 0)
-		{
-			if (!validate_command(line, &stack))
-				error_exit();
-		}
-		validate_order(stack.a, stack.top[0]) ? write(2, "OK\n", 3) : write(2, "KO\n", 3);
-		free(stack.a);
-		free(stack.b);
-		free(line);
-	}
-	else
-		error_exit();
-	return (0);
+		do_swap_a,
+		do_swap_b,
+		do_swap_both,
+		do_push_a,
+		do_push_b,
+		do_rotate_a,
+		do_rotate_b,
+		do_rotate_both,
+		do_reverse_rotate_a,
+		do_reverse_rotate_b,
+		do_reverse_rotate_both,
+	};
+
+	argc == 1 ? ps_exit(0, NULL) : validate_arg(&stack, argv + 1, argc - 1);
+	while (ft_getline(0, &stack.line) > 0)
+		(void)f[validate_command(stack.line, &stack)];
+	validate_order(stack.a, stack.top[0])
+		? write(2, "OK\n", 3) : write(2, "KO\n", 3);
+	return (ps_exit(1, &stack));
 }
