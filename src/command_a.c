@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 19:57:56 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/07 20:55:04 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/10 19:41:35 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,13 @@ void	do_swap_a(t_ps *stack)
 	print_stack(stack);
 }
 
+
+
+
 void	do_push_a(t_ps *stack)
 {
 	TB++;
 	stack->b[TB] = stack->a[TA];
-//	stack->a[TA] = 0;
 	TA--;
 	print_stack(stack);
 }
@@ -38,7 +40,7 @@ void	do_rotate_a(t_ps *stack)
 	int top;
 
 	n = stack->size - 1;
-	top = stack->top[0];
+	top = TA;
 	while (n--)
 	{
 		tmp = stack->a[top];

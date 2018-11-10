@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 18:48:52 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/07 20:55:20 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/10 18:14:58 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 #include <stdio.h> //printf
 
-#define TA stack->top[0]
+#define TA stack->top[0] //current (end)
 #define TB stack->top[1]
 
 typedef struct	s_ps
@@ -50,11 +50,11 @@ void	push_swap();
 
 void	print_stack(t_ps *stack);
 
-int		validate_arg(t_ps *stack, int n, char **arg);
+int		validate_arg(t_ps *stack, char **arg);
 int		validate_int(const char *s, intmax_t *result);
-int		validate_duplicates(int *tab, int nbr, int n);
+int		validate_duplicates(int *tab, int nbr, int size);
 int 	validate_command(char *s, t_ps *stack);
-int		validate_order(t_ps *stack);
+int		validate_order(int *tab, int size);
 
 void	do_swap_a(t_ps *stack);
 void	do_swap_b(t_ps *stack);

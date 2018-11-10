@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 20:40:05 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/09 20:27:21 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/10 19:18:51 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,29 +24,29 @@
 int 	validate_command(char *s, t_ps *stack)
 {
 	if (ft_strequ(s, "sa"))
-		return (0);
+		do_swap_a(stack);
 	else if (ft_strequ(s, "sb"))
-		return (1);
+		do_swap_b(stack);
 	else if (ft_strequ(s, "ss"))
-		return (2);
+		do_swap_both(stack);
 	else if (ft_strequ(s, "pa"))
-		return (3);
+		do_push_a(stack);
 	else if (ft_strequ(s, "pb"))
-		return (4);
+		do_push_b(stack);
 	else if (ft_strequ(s, "ra"))
-		return (5);
+		do_rotate_a(stack);
 	else if (ft_strequ(s, "rb"))
-		return (6);
+		do_rotate_b(stack);
 	else if (ft_strequ(s, "rr"))
-		return (7);
+		do_rotate_both(stack);
 	else if (ft_strequ(s, "rra"))
-		return (8);
+		do_reverse_rotate_a(stack);
 	else if (ft_strequ(s, "rrb"))
-		return (9);
+		do_reverse_rotate_b(stack);
 	else if (ft_strequ(s, "rrr"))
 		do_reverse_rotate_both(stack);
 	else
-		return (-1);
+		return (0);
 	return (1);
 }
 
@@ -73,59 +73,51 @@ int		validate_int(const char *s, intmax_t *result)
 	return (1);
 }
 
-int		validate_duplicates(int *tab, int nbr, int n)
+int		validate_duplicates(int *tab, int nbr, int size)
 {
 	int i;
 
 	i = 0;
-	while (i < n)
+	while (i < size)
+		if (tab[i++] == nbr)
+			return (0);
+	return (1);
+}
+
+int		validate_order(int *tab, int size)
+{
+	int i;
+
+	i = 0;
+	while (--size > 0)
 	{
-		if (tab[i] == nbr)
+		if (tab[i] < tab[i + 1])
 			return (0);
 		i++;
 	}
 	return (1);
 }
 
-int		validate_order(t_ps *stack)
-{
-	int	n;
-	int i;
-
-	if (stack->top[1] != -1 || stack->top[0] != stack->size - 1)
-		return (0);
-	n = stack->size - 1;
-	i = 0;
-	while (n--)
-	{
-		if (stack->a[i] < stack->a[i + 1])
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-int						validate_arg(t_ps *stack, int n, char **arg)
+int		validate_arg(t_ps *stack, char **arg)
 {
 	intmax_t	t;
+	int 		n;
 
-	stack->size = n--;
+	n = stack->size - 1;
 	stack->a = (int*)malloc(sizeof(int) * (stack->size));
-	stack->top[0] = 0;
-	t = 0;
-	while (n > 0)
+	TA = -1;
+	while (n >= 0)
 	{
-		if (!validate_int(arg[n], &t) || t > INT_MAX || t < INT_MIN ||
-			!validate_duplicates(stack->a, (int)t, stack->top[0]))
+		if (!validate_int(arg[n], &t) || t > INT_MAX || t < INT_MIN)
+//			|| !validate_duplicates(stack->a, (int)t, TA))
 		{
 			free(stack->a);
 			return (0);
 		}
-		stack->a[stack->top[0]] = (int)t;
+		stack->a[++TA] = (int)t;
 		n--;
-		stack->top[0]++;
 	}
 	stack->b = (int*)malloc(sizeof(int) * (stack->size));
-	stack->top[1] = -1;
+	TB = -1;
 	return (1);
 }

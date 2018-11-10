@@ -13,6 +13,8 @@
 NAME_CHECK = checker
 NAME_PS = push_swap
 
+
+
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
@@ -31,20 +33,24 @@ SRC = checker.c \
 	command.c \
 	validation.c
 
-#OBJ = $(addprefix $(OBJ_DIR), $(SRC:.c=.o))
+OBJ = $(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 
 all:
+	@mkdir -p $(OBJ_DIR)
 	@make -C $(LIBFT_DIR)
 	@echo "start compilation""\033[2;35m"
-	@$(CC) $(CFLAGS) -I $(HEADER) -c $(addprefix $(SRC_DIR), $(SRC))
 	@make $(NAME_CHECK)
 
-$(NAME_CHECK):
+$(NAME_CHECK): $(OBJ)
 	@$(CC) $(CFLAGS) -o $(NAME_CHECK) $(OBJ) $(LIBFT)
-	@echo "\n\033[35mgot $(NAME_CHECK)\033[0m"
+	@echo "\n\033[0m""got ""\033[2;36m""$(NAME_CHECK)\033[0m"
+
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c
+	@$(CC) $(CFLAGS) -c $< -o $@
+	@echo -n ' <@>'
 
 clean:
-	@rm -rf *.o
+	@rm -rf $(OBJ_DIR)
 	@rm -rf $(INC_DIR)*.h.gch
 	@make -C $(LIBFT_DIR) clean
 	
@@ -57,9 +63,4 @@ fclean:
 re: fclean all
 
 .PHONY: all clean fclean re checker
-
-	#@make $(OBJ)
-
-# $(OBJ_DIR)%.o: $(SRC_DIR)%.c
-# 	@$(CC) $(CFLAGS) -I $(HEADER) -c $< -o $@
-# 	@echo -n ' <@>'
+	

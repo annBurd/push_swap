@@ -17,14 +17,19 @@ void	print_stack(t_ps *stack)
 	int	i;
 
 	i = -1;
-	printf("A: ");
 	while (++i < TA)
-		printf("[%d]: %d\t", i, stack->a[i]);
-	i = -1;
-	printf("\nB: ");
-	while (++i < TB + 1)
-		printf("[%d]: %d\t", i, stack->b[i]);
+		printf("a[%d]: %d\t", i, stack->a[i]);
 	printf("\n");
+	i = -1;
+	while (++i < TB + 1)
+		printf("a[%d]: %d\t", i, stack->b[i]);
+	printf("\n");
+}
+
+static void		error_exit(void)
+{
+	write(2, "Error\n", 6);
+	exit(0);
 }
 
 // static void (*[11])(t_ps *)			*get_command()
@@ -44,12 +49,6 @@ void	print_stack(t_ps *stack)
 // 	// f[10] = do_reverse_rotate_both;
 // 	return (f);
 // }
-
-static void		error_exit(void)
-{
-	write(2, "Error\n", 6);
-	exit(0);
-}
 
 int				main(int argc, char **argv)
 {
