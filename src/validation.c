@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 20:40:05 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/10 21:49:22 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/10 21:58:06 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int 	validate_command(char *s, t_ps *stack)
 		do_reverse_rotate_both(stack);
 	else
 		return (0);
+	print_stack(stack);
 	return (1);
 }
 
@@ -95,13 +96,13 @@ int		validate_order(int *tab, int size)
 	return (1);
 }
 
-int		validate_arg(t_ps *stack, char **arg)
+int		validate_arg(t_ps *stack, char **arg, size_t size)
 {
 	intmax_t	t;
 	int 		n;
 
-	n = stack->size - 1;
-	stack->a = (int*)malloc(sizeof(int) * (stack->size));
+	n = (int)(size - 1);
+	stack->a = (int*)malloc(sizeof(int) * (size));
 	TA = -1;
 	while (n >= 0)
 	{
@@ -114,7 +115,7 @@ int		validate_arg(t_ps *stack, char **arg)
 		stack->a[++TA] = (int)t;
 		n--;
 	}
-	stack->b = (int*)malloc(sizeof(int) * (stack->size));
+	stack->b = (int*)malloc(sizeof(int) * (size));
 	TB = -1;
 	return (1);
 }
