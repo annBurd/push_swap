@@ -8,7 +8,8 @@ set(SOURCE_FILES
         inc/libft.h
         inc/push_swap.h
 
-        src/checker.c
+#        src/checker.c
+        src/push_swap.c
         src/command.c
         src/command_a.c
         src/command_b.c
