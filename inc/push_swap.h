@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 18:48:52 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/10 23:26:31 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/11 18:52:16 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef void	(*cmd)(t_ps *stack);
 ** checker
 */
 
-//int main(int argc, char **argv);
+
 
 /*
 ** push_swap

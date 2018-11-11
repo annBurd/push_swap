@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 19:57:56 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/10 22:00:10 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/11 19:01:12 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	do_rotate_a(t_ps *stack)
 
 	n = TA;
 	top = TA;
-	while (--n > 0)
+	while (n-- > 0)
 	{
 		tmp = stack->a[top];
 		stack->a[top] = stack->a[top - 1];
@@ -52,8 +52,8 @@ void	do_reverse_rotate_a(t_ps *stack)
 	int top;
 
 	n = TA;
-	top = TA;
-	while (--n > 0)
+	top = 0;
+	while (n-- > 0)
 	{
 		tmp = stack->a[top];
 		stack->a[top] = stack->a[top + 1];

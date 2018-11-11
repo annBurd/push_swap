@@ -6,7 +6,7 @@
 #    By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/27 18:17:42 by aburdeni          #+#    #+#              #
-#    Updated: 2018/11/07 20:04:52 by aburdeni         ###   ########.fr        #
+#    Updated: 2018/11/11 19:34:27 by aburdeni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,12 +38,12 @@ OBJ = $(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 all:
 	@mkdir -p $(OBJ_DIR)
 	@make -C $(LIBFT_DIR)
-	@echo "start compilation""\033[2;35m"
+	@echo "start compilation & release alien spaceships""\033[2;35m"
 	@make $(NAME_CHECK)
 
 $(NAME_CHECK): $(OBJ)
 	@$(CC) $(CFLAGS) -o $(NAME_CHECK) $(OBJ) $(LIBFT)
-	@echo "\n\033[0m""got ""\033[2;36m""$(NAME_CHECK)\033[0m"
+	@echo "\n\033[0mgot ""\033[2;36m""$(NAME_CHECK)\033[0m binary"
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@$(CC) $(CFLAGS) -c $< -o $@

@@ -6,14 +6,14 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 20:40:05 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/10 23:20:32 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/11 18:15:59 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
 /*
-** In case of error, you must display Error followed by a ’\n’ on the standard error.
+** In case of error, you must display "Error\n" on the standard error.
 ** Errors include for example:
 **	- some arguments are not integers,
 **	- some arguments are bigger than an integer,
@@ -77,9 +77,9 @@ int		validate_duplicates(int *tab, int nbr, int size)
 {
 	int i;
 
-	i = 0;
-	while (i < size)
-		if (tab[i++] == nbr)
+	i = -1;
+	while (++i < size)
+		if (tab[i] == nbr)
 			return (0);
 	return (1);
 }
@@ -105,8 +105,8 @@ int		validate_arg(t_ps *stack, char **arg, int size)
 	TA = -1;
 	while (n >= 0)
 	{
-		if (!validate_int(arg[n], &t) || t > INT_MAX || t < INT_MIN)
-//			|| !validate_duplicates(stack->a, (int)t, TA))
+		if (!validate_int(arg[n], &t) || t > INT_MAX || t < INT_MIN
+			|| !validate_duplicates(stack->a, (int)t, TA + 1))
 			ps_exit(-1, stack);
 		stack->a[++TA] = (int)t;
 		n--;

@@ -48,77 +48,19 @@
 
 void	do_swap_both(t_ps *stack)
 {
-	//	ft_swap(&stack->a[TA], &stack->a[TA - 1]);
-	//	ft_swap(&stack->b[TB], &stack->b[TB - 1]);
-
-	int	tmp;
-
-	tmp = stack->a[TA];
-	stack->a[TA] = stack->a[TA - 1];
-	stack->a[TA - 1] = tmp;
-	tmp = stack->b[TB];
-	stack->b[TB] = stack->b[TB - 1];
-	stack->b[TB - 1] = tmp;
-
-//	do_swap_a(stack);
-//	do_swap_b(stack);
+	do_swap_a(stack);
+	do_swap_b(stack);
 }
 
 void	do_rotate_both(t_ps *stack)
 {
-	int	tmp;
-	int n;
-	int top;
-
-	n = TA;
-	top = TA;
-	while (--n > 0)
-	{
-		tmp = stack->a[top];
-		stack->a[top] = stack->a[top - 1];
-		stack->a[top - 1] = tmp;
-		top--;
-	}
-	n = TB;
-	top = TB;
-	while (--n > 0)
-	{
-		tmp = stack->b[top];
-		stack->b[top] = stack->b[top - 1];
-		stack->b[top - 1] = tmp;
-		top--;
-	}
-
-//	do_rotate_a(stack);
-//	do_rotate_b(stack);
+	do_rotate_a(stack);
+	do_rotate_b(stack);
 }
 
 void	do_reverse_rotate_both(t_ps *stack)
 {
-	int tmp;
-	int n;
-	int top;
-
-	n = TA;
-	top = TA;
-	while (--n > 0)
-	{
-		tmp = stack->a[top];
-		stack->a[top] = stack->a[top + 1];
-		stack->a[top + 1] = tmp;
-		top++;
-	}
-	n = TB;
-	top = TB;
-	while (--n > 0)
-	{
-		tmp = stack->b[top];
-		stack->b[top] = stack->b[top + 1];
-		stack->b[top + 1] = tmp;
-		top++;
-	}
-
-//	do_reverse_rotate_a(stack);
-//	do_reverse_rotate_b(stack);
+	do_reverse_rotate_a(stack);
+	do_reverse_rotate_b(stack);
 }
 
