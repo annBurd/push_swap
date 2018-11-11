@@ -21,7 +21,7 @@
 **	- an instruction don’t exist and/or is incorrectly formatted.
 */
 
-int 	validate_command(char *s, t_ps *stack)
+int	validate_command(char *s, t_ps *stack)
 {
 	if (ft_strequ(s, "sa"))
 		return (0);
@@ -50,9 +50,9 @@ int 	validate_command(char *s, t_ps *stack)
 	return (-1);
 }
 
-int		validate_int(const char *s, intmax_t *result)
+int	validate_int(const char *s, intmax_t *result)
 {
-	short	 minus;
+	short	minus;
 
 	minus = 1;
 	if (*s == '-')
@@ -73,7 +73,7 @@ int		validate_int(const char *s, intmax_t *result)
 	return (1);
 }
 
-int		validate_duplicates(int *tab, int nbr, int size)
+int	validate_duplicates(int *tab, int nbr, int size)
 {
 	int i;
 
@@ -84,7 +84,7 @@ int		validate_duplicates(int *tab, int nbr, int size)
 	return (1);
 }
 
-int		validate_order(int *tab, int size)
+int	validate_order(int *tab, int size)
 {
 	int i;
 
@@ -95,10 +95,10 @@ int		validate_order(int *tab, int size)
 	return (1);
 }
 
-int		validate_arg(t_ps *stack, char **arg, int size)
+int	validate_arg(t_ps *stack, char **arg, int size)
 {
 	intmax_t	t;
-	int 		n;
+	int			n;
 
 	n = size - 1;
 	stack->a = (int*)malloc(sizeof(int) * (size));

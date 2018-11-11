@@ -63,4 +63,3 @@ void	do_reverse_rotate_both(t_ps *stack)
 	do_reverse_rotate_a(stack);
 	do_reverse_rotate_b(stack);
 }
-
