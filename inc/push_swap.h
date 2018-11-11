@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 18:48:52 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/11 18:52:16 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/11 19:07:07 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,7 @@ typedef struct	s_ps
 
 typedef void	(*cmd)(t_ps *stack);
 
-/*
-** checker
-*/
 
-
-
-/*
-** push_swap
-*/
-
-
-/*
-** common
-*/
 
 void	print_stack(t_ps *stack);
 int		ps_exit(short code, t_ps *stack);

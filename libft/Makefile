@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+NAME = libft
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
@@ -93,20 +93,42 @@ SRC = ft_atoi.c \
  
 OBJ = $(SRC:.c=.o)
 
-all: $(NAME)
-	@echo "got ""\033[2;36m""$(NAME)""\033[0m"
+RESET = \033[0m
+PURPLE = \033[2;35m
+DIMCYAN = \033[2;36m
 
-$(NAME):
-	@$(CC) $(CFLAGS) -c ../inc/$(NAME:.a=.h) $(SRC)
-	@ar rc $(NAME) $(OBJ)
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	@ar rc $(NAME).a $(OBJ)
+	@echo "$(RESET)got $(DIMCYAN)$(NAME).a$(RESET)"
+
+%.o: %.c
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@$(RM) $(OBJ)
 	
 fclean: clean
-	@$(RM) $(NAME)
-	@echo "\033[2;36m""libft""\033[0m"" was fcleaned"
+	@$(RM) $(NAME).a
+	@echo "$(DIMCYAN)$(NAME)/$(RESET) was fcleaned"
 
 re: fclean all
 
 .PHONY: all clean fclean re libft.a
+
+
+# w/ spaceships
+
+# all:
+# 	@echo "release alien spaceships from $(DIMCYAN)$(NAME)/$(PURPLE)"
+# 	@make $(NAME)
+
+# $(NAME): $(OBJ)
+# 	@echo "$(RESET)"
+# 	@ar rc $(NAME).a $(OBJ)
+# 	@echo "got $(DIMCYAN)$(NAME).a$(RESET)"
+
+# %.o: %.c
+# 	@$(CC) $(CFLAGS) -c $< -o $@
+# 	@echo -n '  <@> '
