@@ -63,3 +63,45 @@ void	do_reverse_rotate_both(t_ps *stack)
 	do_reverse_rotate_a(stack);
 	do_reverse_rotate_b(stack);
 }
+
+void	print_stack(t_ps *stack)
+{
+	int	i;
+
+	i = TA;
+	printf("A:");
+	while (i >= 0)
+		printf(" %d", stack->a[i--]);
+	printf("\nB:");
+	i = TB;
+	while (i >= 0)
+		printf(" %d", stack->b[i--]);
+	printf("\n");
+}
+
+int		ps_exit(short code, t_ps *stack)
+{
+	if (!code)
+		exit(0);
+	else if (code == -1)
+	{
+		free(stack->a);
+		write(2, "Error\n", 6);
+		exit(0);
+	}
+	else if (code == -2)
+	{
+		free(stack->a);
+		free(stack->b);
+		free(stack->line);
+		write(2, "Error\n", 6);
+		exit(0);
+	}
+	else if (code == 1)
+	{
+		free(stack->a);
+		free(stack->b);
+		free(stack->line);
+	}
+	return (0);
+}
