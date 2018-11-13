@@ -8,6 +8,8 @@ set(SOURCE_FILES
         inc/libft.h
         inc/push_swap.h
 
+        libft/ft_strequ.c
+
 #        src/checker.c
         src/push_swap.c
         src/command.c

@@ -46,22 +46,28 @@
 ** rrr : rra and rrb at the same time.
 */
 
-void	do_swap_both(t_ps *stack)
+void	do_swap_both(t_ps *stack, t_bool print)
 {
-	do_swap_a(stack);
-	do_swap_b(stack);
+	do_swap_a(stack, false);
+	do_swap_b(stack, false);
+	if (print)
+		write(1, "ss\n", 3);
 }
 
-void	do_rotate_both(t_ps *stack)
+void	do_rotate_both(t_ps *stack, t_bool print)
 {
-	do_rotate_a(stack);
-	do_rotate_b(stack);
+	do_rotate_a(stack, false);
+	do_rotate_b(stack, false);
+	if (print)
+		write(1, "rr\n", 3);
 }
 
-void	do_reverse_rotate_both(t_ps *stack)
+void	do_reverse_rotate_both(t_ps *stack, t_bool print)
 {
-	do_reverse_rotate_a(stack);
-	do_reverse_rotate_b(stack);
+	do_reverse_rotate_a(stack, false);
+	do_reverse_rotate_b(stack, false);
+	if (print)
+		write(1, "rrr\n", 4);
 }
 
 void	print_stack(t_ps *stack)
@@ -77,31 +83,4 @@ void	print_stack(t_ps *stack)
 	while (i >= 0)
 		printf(" %d", stack->b[i--]);
 	printf("\n");
-}
-
-int		ps_exit(short code, t_ps *stack)
-{
-	if (!code)
-		exit(0);
-	else if (code == -1)
-	{
-		free(stack->a);
-		write(2, "Error\n", 6);
-		exit(0);
-	}
-	else if (code == -2)
-	{
-		free(stack->a);
-		free(stack->b);
-		free(stack->line);
-		write(2, "Error\n", 6);
-		exit(0);
-	}
-	else if (code == 1)
-	{
-		free(stack->a);
-		free(stack->b);
-		free(stack->line);
-	}
-	return (0);
 }

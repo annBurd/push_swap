@@ -12,23 +12,27 @@
 
 #include "../inc/push_swap.h"
 
-void	do_swap_a(t_ps *stack)
+void	do_swap_a(t_ps *stack, t_bool print)
 {
 	int	tmp;
 
 	tmp = stack->a[TA];
 	stack->a[TA] = stack->a[TA - 1];
 	stack->a[TA - 1] = tmp;
+	if (print)
+		write(1, "sa\n", 3);
 }
 
-void	do_push_a(t_ps *stack)
+void	do_push_a(t_ps *stack, t_bool print)
 {
 	TB++;
 	stack->b[TB] = stack->a[TA];
 	TA--;
+	if (print)
+		write(1, "pa\n", 3);
 }
 
-void	do_rotate_a(t_ps *stack)
+void	do_rotate_a(t_ps *stack, t_bool print)
 {
 	int	tmp;
 	int n;
@@ -43,9 +47,11 @@ void	do_rotate_a(t_ps *stack)
 		stack->a[top - 1] = tmp;
 		top--;
 	}
+	if (print)
+		write(1, "ra\n", 3);
 }
 
-void	do_reverse_rotate_a(t_ps *stack)
+void	do_reverse_rotate_a(t_ps *stack, t_bool print)
 {
 	int tmp;
 	int n;
@@ -60,4 +66,6 @@ void	do_reverse_rotate_a(t_ps *stack)
 		stack->a[top + 1] = tmp;
 		top++;
 	}
+	if (print)
+		write(1, "rra\n", 4);
 }

@@ -21,33 +21,31 @@
 **	- an instruction don’t exist and/or is incorrectly formatted.
 */
 
-int	validate_command(char *s, t_ps *stack)
+int	ps_exit(short code, t_ps *stack)
 {
-	if (ft_strequ(s, "sa"))
-		return (0);
-	else if (ft_strequ(s, "sb"))
-		return (1);
-	else if (ft_strequ(s, "ss"))
-		return (2);
-	else if (ft_strequ(s, "pa"))
-		return (3);
-	else if (ft_strequ(s, "pb"))
-		return (4);
-	else if (ft_strequ(s, "ra"))
-		return (5);
-	else if (ft_strequ(s, "rb"))
-		return (6);
-	else if (ft_strequ(s, "rr"))
-		return (7);
-	else if (ft_strequ(s, "rra"))
-		return (8);
-	else if (ft_strequ(s, "rrb"))
-		return (9);
-	else if (ft_strequ(s, "rrr"))
-		return (10);
-	else
-		ps_exit(-2, stack);
-	return (-1);
+	if (!code)
+		exit(0);
+	else if (code == -1)
+	{
+		free(stack->a);
+		write(2, "Error\n", 6);
+		exit(0);
+	}
+	else if (code == -2)
+	{
+		free(stack->a);
+		free(stack->b);
+		free(stack->line);
+		write(2, "Error\n", 6);
+		exit(0);
+	}
+	else if (code == 1)
+	{
+		free(stack->a);
+		free(stack->b);
+		free(stack->line);
+	}
+	return (0);
 }
 
 int	validate_int(const char *s, intmax_t *result)
@@ -84,14 +82,14 @@ int	validate_duplicates(int *tab, int nbr, int size)
 	return (1);
 }
 
-int	validate_order(int *tab, int size)
+int	validate_order(int *tab, int i, int end)
 {
-	int i;
-
-	i = -1;
-	while (++i < size)
+	while (i < end)
+	{
 		if (tab[i] < tab[i + 1])
 			return (0);
+		i++;
+	}
 	return (1);
 }
 
