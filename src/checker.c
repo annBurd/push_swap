@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 19:04:34 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/14 16:55:33 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/14 17:05:15 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,7 @@ int	main(int argc, char **argv)
 	static cmd	f[11];
 	int 		fd;
 
-	argc == 1 && ps_exit(0, NULL);
-	fd = define_flags(&stack, &argv, &argc);
+	argc == 1 ? ps_exit(0, NULL) : fd = define_flags(&stack, &argv, &argc);
 	ps_init(&stack, argv, argc);
 	f[0] = cmd_sa;
 	f[1] = cmd_sb;
