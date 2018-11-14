@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 20:40:05 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/11 18:15:59 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/14 15:49:44 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,28 @@ int	ps_exit(short code, t_ps *stack)
 	return (0);
 }
 
-int	validate_int(const char *s, intmax_t *result)
+void	ps_print_stack(t_ps *stack)
+{
+	int	i;
+
+	i = TA;
+	write(1, "A:", 2);
+	while (i >= 0)
+	{
+		write(1, " ", 1);
+		ft_putnbr(stack->a[i--]);
+	}
+	write(1, "\nB:", 3);
+	i = TB;
+	while (i >= 0)
+	{
+		write(1, " ", 1);
+		ft_putnbr(stack->b[i--]);
+	}
+	write(1, "\n", 1);
+}
+
+int	ps_get_int(const char *s, intmax_t *result)
 {
 	short	minus;
 
@@ -71,28 +92,6 @@ int	validate_int(const char *s, intmax_t *result)
 	return (1);
 }
 
-int	validate_duplicates(int *tab, int nbr, int size)
-{
-	int i;
-
-	i = -1;
-	while (++i < size)
-		if (tab[i] == nbr)
-			return (0);
-	return (1);
-}
-
-int	validate_order(int *tab, int i, int end)
-{
-	while (i < end)
-	{
-		if (tab[i] < tab[i + 1])
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
 int	ps_init(t_ps *stack, char **arg, int size)
 {
 	intmax_t	t;
@@ -103,14 +102,14 @@ int	ps_init(t_ps *stack, char **arg, int size)
 	TA = -1;
 	while (n >= 0)
 	{
-		if (!validate_int(arg[n], &t) || t > INT_MAX || t < INT_MIN
-			|| !validate_duplicates(stack->a, (int)t, TA + 1))
+		if (!ps_get_int(arg[n], &t) || t > INT_MAX || t < INT_MIN
+			|| !check_duplicates(stack->a, (int)t, TA + 1))
 			ps_exit(-1, stack);
 		stack->a[++TA] = (int)t;
 		n--;
 	}
 	stack->b = (int*)malloc(sizeof(int) * (size));
 	TB = -1;
-	print_stack(stack);
+	ps_print_stack(stack);
 	return (1);
 }

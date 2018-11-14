@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   command.c                                          :+:      :+:    :+:   */
+/*   cmd_both.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 18:29:47 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/14 14:43:56 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/14 15:52:38 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,25 +68,4 @@ void	do_rrr(t_ps *stack, t_bool print)
 	do_rrb(stack, false);
 	if (print)
 		write(1, "rrr\n", 4);
-}
-
-void	print_stack(t_ps *stack)
-{
-	int	i;
-
-	i = TA;
-	write(1, "A:", 2);
-	while (i >= 0)
-	{
-		write(1, " ", 1);
-		ft_putnbr(stack->a[i--]);
-	}
-	write(1, "\nB:", 3);
-	i = TB;
-	while (i >= 0)
-	{
-		write(1, " ", 1);
-		ft_putnbr(stack->b[i--]);
-	}
-	write(1, "\n", 1);
 }

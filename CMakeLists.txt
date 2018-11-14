@@ -11,12 +11,12 @@ set(SOURCE_FILES
 #        libft/ft_strequ.c
 
 #        src/checker.c
-        src/checking_values.c
+        src/check_array.c
         src/push_swap.c
-        src/command.c
-        src/command_a.c
-        src/command_b.c
-        src/validation.c
+        src/cmd_both.c
+        src/cmd_a.c
+        src/cmd_b.c
+        src/supporting_funcs.c
         src/try_rotate.c)
 link_directories(libft)
 add_executable(push_swap ${SOURCE_FILES})
