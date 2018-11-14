@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 19:04:34 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/14 17:05:15 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/14 17:42:45 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int define_flags(t_ps *stack, char ***argv, int *argc)
 
 	i = 1;
 	fd = 0;
+	stack->print = 0;
 	stack->status = 0;
 	while (argv[0][i][0] == '-')
 	{
@@ -70,23 +71,23 @@ int	main(int argc, char **argv)
 
 	argc == 1 ? ps_exit(0, NULL) : fd = define_flags(&stack, &argv, &argc);
 	ps_init(&stack, argv, argc);
-	f[0] = cmd_sa;
-	f[1] = cmd_sb;
-	f[2] = cmd_ss;
-	f[3] = cmd_pa;
-	f[4] = cmd_pb;
-	f[5] = cmd_ra;
-	f[6] = cmd_rb;
-	f[7] = cmd_rr;
-	f[8] = cmd_rra;
-	f[9] = cmd_rrb;
-	f[10] = cmd_rrr;
+	f[0] = do_sa;
+	f[1] = do_sb;
+	f[2] = do_ss;
+	f[3] = do_pa;
+	f[4] = do_pb;
+	f[5] = do_ra;
+	f[6] = do_rb;
+	f[7] = do_rr;
+	f[8] = do_rra;
+	f[9] = do_rrb;
+	f[10] = do_rrr;
 	while (ft_getline(fd, &stack.line) > 0)
 	{
-		f[define_cmd(stack.line, &stack)](&stack, false);
+		f[define_cmd(stack.line, &stack)](&stack);
 		print_stack(&stack);
 	}
-	check_order(stack.a, 0, stack.top[0]) && stack.top[1] == -1
+	check_order(stack.top[1] == -1 && stack.a, 0, stack.top[0])
 		? write(2, "OK\n", 3) : write(2, "KO\n", 3);
 	return (ps_exit(1, &stack));
 }

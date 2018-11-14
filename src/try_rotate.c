@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 15:08:13 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/14 15:10:10 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/14 16:38:22 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,13 @@ void	try_rotate(t_ps *stack)
 	if (nullBigger_a && nullBigger_b && a && b && choice[0] == choice[1])
 	{
 		if (choice[0])
-			cmd_rr(stack, 1);
+			cmd_rr(stack);
 		else
-			cmd_rrr(stack, 1);
+			cmd_rrr(stack);
 		return ;
 	}
 	if (nullBigger_a && a)
-		choice[0] ? cmd_ra(stack, 1) : cmd_rra(stack, 1);
+		choice[0] ? cmd_ra(stack) : cmd_rra(stack);
 	if (nullBigger_b && b)
-		choice[1] ? cmd_rb(stack, 1) : cmd_rrb(stack, 1);
+		choice[1] ? cmd_rb(stack) : cmd_rrb(stack);
 }

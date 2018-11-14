@@ -1,54 +1,63 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cmd_both.c                                         :+:      :+:    :+:   */
+/*   do_both.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 18:29:47 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/14 16:30:24 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/14 17:42:45 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	cmd_ss(t_ps *stack, short print)
+void	do_ss(t_ps *stack)
 {
-	const short	show = stack->status;
-	
+	const short	p = stack->print;
+	const short	s = stack->status;
+
+	stack->print = 0;
 	stack->status = 0;
-	cmd_sa(stack, 0);
-	cmd_sb(stack, 0);
-	stack->status = show;
-	if (print)
+	do_sa(stack);
+	do_sb(stack);
+	stack->print = p;
+	stack->status = s;
+	if (stack->print)
 		write(1, "ss\n", 3);
 	if (stack->status)
 		ps_print_stack(stack);
 }
 
-void	cmd_rr(t_ps *stack, short print)
+void	do_rr(t_ps *stack)
 {
-	const short	show = stack->status;
+	const short	p = stack->print;
+	const short	s = stack->status;
 
+	stack->print = 0;
 	stack->status = 0;
-	cmd_ra(stack, 0);
-	cmd_rb(stack, 0);
-	stack->status = show;
-	if (print)
+	do_ra(stack);
+	do_rb(stack);
+	stack->print = p;
+	stack->status = s;
+	if (stack->print)
 		write(1, "rr\n", 3);
 	if (stack->status)
 		ps_print_stack(stack);
 }
 
-void	cmd_rrr(t_ps *stack, short print)
+void	do_rrr(t_ps *stack)
 {
-	const short	show = stack->status;
+	const short	p = stack->print;
+	const short	s = stack->status;
 
+	stack->print = 0;
 	stack->status = 0;
-	cmd_rra(stack, 0);
-	cmd_rrb(stack, 0);
-	stack->status = show;
-	if (print)
+	do_rra(stack);
+	do_rrb(stack);
+	stack->print = p;
+	stack->status = s;
+	if (stack->print)
 		write(1, "rrr\n", 4);
 	if (stack->status)
 		ps_print_stack(stack);

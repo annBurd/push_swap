@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validation.c                                       :+:      :+:    :+:   */
+/*   supporting_funcs.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 20:40:05 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/14 15:49:44 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/14 15:57:59 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 **	- an instruction don’t exist and/or is incorrectly formatted.
 */
 
-int	ps_exit(short code, t_ps *stack)
+int		ps_exit(short code, t_ps *stack)
 {
 	if (!code)
 		exit(0);
@@ -69,7 +69,7 @@ void	ps_print_stack(t_ps *stack)
 	write(1, "\n", 1);
 }
 
-int	ps_get_int(const char *s, intmax_t *result)
+int		ps_get_int(const char *s, intmax_t *result)
 {
 	short	minus;
 
@@ -92,7 +92,7 @@ int	ps_get_int(const char *s, intmax_t *result)
 	return (1);
 }
 
-int	ps_init(t_ps *stack, char **arg, int size)
+int		ps_init(t_ps *stack, char **arg, int size)
 {
 	intmax_t	t;
 	int			n;

@@ -1,103 +1,103 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cmd_a.c                                            :+:      :+:    :+:   */
+/*   do_b.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/05 19:57:56 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/14 16:30:16 by aburdeni         ###   ########.fr       */
+/*   Created: 2018/11/07 18:29:30 by aburdeni          #+#    #+#             */
+/*   Updated: 2018/11/14 17:42:45 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
 /*
-** sa : swap a - swap the first 2 elements at the top of stack a.
+** sb : swap b - swap the first 2 elements at the top of stack b.
 ** 		Do nothing if there is only one or no elements).
 */
 
-void	cmd_sa(t_ps *stack, short print)
+void	do_sb(t_ps *stack)
 {
 	int	tmp;
 
-	tmp = stack->a[TA];
-	stack->a[TA] = stack->a[TA - 1];
-	stack->a[TA - 1] = tmp;
-	if (print)
-		write(1, "sa\n", 3);
+	tmp = stack->b[TB];
+	stack->b[TB] = stack->b[TB - 1];
+	stack->b[TB - 1] = tmp;
+	if (stack->print)
+		write(1, "sb\n", 3);
 	if (stack->status)
 		ps_print_stack(stack);
 }
 
 /*
-** pa : push a - take the first element at the top of b
-** 		and put it at the top of a.
-** 		Do nothing if b is empty.
+** pb : push b - take the first element at the top of a
+** 		and put it at the top of b.
+** 		Do nothing if a is empty.
 */
 
-void	cmd_pa(t_ps *stack, short print)
+void	do_pb(t_ps *stack)
 {
-	if (TA >= 0)
+	if (TB >= 0)
 	{
-		TB++;
-		stack->b[TB] = stack->a[TA];
-		TA--;
+		TA++;
+		stack->a[TA] = stack->b[TB];
+		TB--;
 	}
-	if (print)
-		write(1, "pa\n", 3);
+	if (stack->print)
+		write(1, "pb\n", 3);
 	if (stack->status)
 		ps_print_stack(stack);
 }
 
 /*
-** ra : rotate a - shift up all elements of stack a by 1.
+** rb : rotate b - shift up all elements of stack b by 1.
 ** 		The first element becomes the last one.
 */
 
-void	cmd_ra(t_ps *stack, short print)
+void	do_rb(t_ps *stack)
 {
 	int	tmp;
 	int n;
 	int top;
 
-	n = TA;
-	top = TA;
+	n = TB;
+	top = TB;
 	while (n-- > 0)
 	{
-		tmp = stack->a[top];
-		stack->a[top] = stack->a[top - 1];
-		stack->a[top - 1] = tmp;
+		tmp = stack->b[top];
+		stack->b[top] = stack->b[top - 1];
+		stack->b[top - 1] = tmp;
 		top--;
 	}
-	if (print)
-		write(1, "ra\n", 3);
+	if (stack->print)
+		write(1, "rb\n", 3);
 	if (stack->status)
 		ps_print_stack(stack);
 }
 
 /*
-** rra : reverse rotate a - shift down all elements of stack a by 1.
+** rrb : reverse rotate b - shift down all elements of stack b by 1.
 ** 		The last element becomes the first one.
 */
 
-void	cmd_rra(t_ps *stack, short print)
+void	do_rrb(t_ps *stack)
 {
 	int tmp;
 	int n;
 	int top;
 
-	n = TA;
+	n = TB;
 	top = 0;
 	while (n-- > 0)
 	{
-		tmp = stack->a[top];
-		stack->a[top] = stack->a[top + 1];
-		stack->a[top + 1] = tmp;
+		tmp = stack->b[top];
+		stack->b[top] = stack->b[top + 1];
+		stack->b[top + 1] = tmp;
 		top++;
 	}
-	if (print)
-		write(1, "rra\n", 4);
+	if (stack->print)
+		write(1, "rrb\n", 4);
 	if (stack->status)
 		ps_print_stack(stack);
 }

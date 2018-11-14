@@ -13,9 +13,9 @@ set(SOURCE_FILES
 #        src/checker.c
         src/check_array.c
         src/push_swap.c
-        src/cmd_both.c
-        src/cmd_a.c
-        src/cmd_b.c
+        src/do_both.c
+        src/do_a.c
+        src/do_b.c
         src/supporting_funcs.c
         src/try_rotate.c)
 link_directories(libft)
