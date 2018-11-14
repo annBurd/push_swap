@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 19:04:34 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/14 17:42:45 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/14 17:49:09 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,35 +41,13 @@ int	define_cmd(char *s, t_ps *stack)
 	return (-1);
 }
 
-int define_flags(t_ps *stack, char ***argv, int *argc)
-{
-	int i;
-	int fd;
-
-	i = 1;
-	fd = 0;
-	stack->print = 0;
-	stack->status = 0;
-	while (argv[0][i][0] == '-')
-	{
-		if (argv[0][i][1] == 's')
-			stack->status = 1;
-		else if (argv[0][i][1] == 'f')
-			fd = open(argv[++i], O_RDONLY);
-		i++;
-	}
-	(*argv) += i;
-	(*argc) -= i;
-	return (fd);
-}
-
 int	main(int argc, char **argv)
 {
 	t_ps		stack;
 	static cmd	f[11];
 	int 		fd;
 
-	argc == 1 ? ps_exit(0, NULL) : fd = define_flags(&stack, &argv, &argc);
+	argc == 1 ? ps_exit(0, NULL) : fd = ps_flags(&stack, &argv, &argc, 0);
 	ps_init(&stack, argv, argc);
 	f[0] = do_sa;
 	f[1] = do_sb;

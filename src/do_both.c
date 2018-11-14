@@ -14,15 +14,10 @@
 
 void	do_ss(t_ps *stack)
 {
-	const short	p = stack->print;
-	const short	s = stack->status;
-
-	stack->print = 0;
-	stack->status = 0;
-	do_sa(stack);
-	do_sb(stack);
-	stack->print = p;
-	stack->status = s;
+	if (TA <= 0 || TB <= 0)
+		return ;
+	ft_swap(&SA[TA], &SB[TB - 1]);
+	ft_swap(&SB[TB], &SB[TB - 1]);
 	if (stack->print)
 		write(1, "ss\n", 3);
 	if (stack->status)

@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 15:10:13 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/14 15:59:15 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/14 19:25:56 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,32 +16,43 @@ int	check_min(int *tab, int size)
 {
 	int i;
 	int value;
+	int res;
 
 	i = 0;
-	value = 0;
+	value = tab[i];
+	res = i;
 	while(i < size)
 	{
-		if (tab[i] > tab[i + 1])
-			value = i + 1;
+		if (value > tab[i + 1])
+		{
+			value = tab[i + 1];
+			res = i + 1;
+		}
 		i++;
 	}
-	return (value);
+	return (res);
 }
 
 int	check_max(int *tab, int size)
 {
 	int i;
 	int value;
+	int res;
 
 	i = 0;
-	value = 0;
+	value = tab[i];
+	res = i;
 	while(i < size)
 	{
-		if (tab[i] < tab[i + 1])
-			value = i + 1;
+		if (value < tab[i + 1])
+		{
+			value = tab[i + 1];
+			res = i + 1;
+
+		}
 		i++;
 	}
-	return (value);
+	return (res);
 }
 
 int	check_duplicates(int *tab, int nbr, int size)

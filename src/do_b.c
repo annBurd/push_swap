@@ -21,6 +21,8 @@ void	do_sb(t_ps *stack)
 {
 	int	tmp;
 
+	if (TB <= 0)
+		return ;
 	tmp = stack->b[TB];
 	stack->b[TB] = stack->b[TB - 1];
 	stack->b[TB - 1] = tmp;
@@ -38,12 +40,11 @@ void	do_sb(t_ps *stack)
 
 void	do_pb(t_ps *stack)
 {
-	if (TB >= 0)
-	{
-		TA++;
-		stack->a[TA] = stack->b[TB];
-		TB--;
-	}
+	if (TA < 0)
+		return ;
+	TB++;
+	stack->b[TB] = stack->a[TA];
+	TA--;
 	if (stack->print)
 		write(1, "pb\n", 3);
 	if (stack->status)

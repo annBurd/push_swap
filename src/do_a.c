@@ -21,6 +21,8 @@ void	do_sa(t_ps *stack)
 {
 	int	tmp;
 
+	if (TA <= 0)
+		return ;
 	tmp = stack->a[TA];
 	stack->a[TA] = stack->a[TA - 1];
 	stack->a[TA - 1] = tmp;
@@ -38,12 +40,11 @@ void	do_sa(t_ps *stack)
 
 void	do_pa(t_ps *stack)
 {
-	if (TA >= 0)
-	{
-		TB++;
-		stack->b[TB] = stack->a[TA];
-		TA--;
-	}
+	if (TB < 0)
+		return ;
+	TA++;
+	stack->a[TA] = stack->b[TB];
+	TB--;
 	if (stack->print)
 		write(1, "pa\n", 3);
 	if (stack->status)
