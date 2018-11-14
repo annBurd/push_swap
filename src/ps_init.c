@@ -33,8 +33,6 @@ static int	ps_get_int(const char *s, intmax_t *result)
 		minus = -1;
 		s++;
 	}
-	if (*s < '0' || *s > '9')
-		return (0);
 	*result = 0;
 	while (*s)
 	{
@@ -43,6 +41,8 @@ static int	ps_get_int(const char *s, intmax_t *result)
 		*result = *result * 10 + *s++ - 48;
 	}
 	*result *= minus;
+	if (*result > INT_MAX || *result < INT_MIN)
+		return (0);
 	return (1);
 }
 
@@ -56,8 +56,8 @@ static int	ps_fill(t_ps *stack, char **arg, int size)
 	n = size - 1;
 	while (n >= 0)
 	{
-		if (!ps_get_int(arg[n], &t) || t > INT_MAX || t < INT_MIN
-				|| !check_duplicates(stack->a, (int)t, TA + 1))
+		if (!ps_get_int(arg[n], &t) ||
+			!check_duplicates(stack->a, (int)t, TA + 1))
 			ps_exit(-1, stack);
 		stack->a[++TA] = (int)t;
 		n--;

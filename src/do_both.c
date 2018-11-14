@@ -57,3 +57,41 @@ void	do_rrr(t_ps *stack)
 	if (stack->status)
 		ps_print_stack(stack);
 }
+
+void	do_swap(t_ps *stack, short code)
+{
+	if (!code)
+		do_sa(stack);
+	else if (code == 1)
+		do_sb(stack);
+	else if (code == 2)
+		do_ss(stack);
+}
+
+void	do_push(t_ps *stack, short code)
+{
+	if (!code)
+		do_pa(stack);
+	else if (code == 1)
+		do_pb(stack);
+}
+
+void	do_rotate(t_ps *stack, short code)
+{
+	if (!code)
+		do_ra(stack);
+	else if (code == 1)
+		do_rb(stack);
+	else if (code == 2)
+		do_rr(stack);
+}
+
+void	do_reverse_rotate(t_ps *stack, short code)
+{
+	if (!code)
+		do_rra(stack);
+	else if (code == 1)
+		do_rrb(stack);
+	else if (code == 2)
+		do_rrr(stack);
+}

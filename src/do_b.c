@@ -19,13 +19,9 @@
 
 void	do_sb(t_ps *stack)
 {
-	int	tmp;
-
 	if (TB <= 0)
 		return ;
-	tmp = stack->b[TB];
-	stack->b[TB] = stack->b[TB - 1];
-	stack->b[TB - 1] = tmp;
+	ft_swap(&SB[TB], &SB[TB - 1]);
 	if (stack->print)
 		write(1, "sb\n", 3);
 	if (stack->status)

@@ -61,7 +61,7 @@ int			main(int argc, char **argv)
 	f[10] = do_rrr;
 	while (ft_getline(fd, &stack.line) > 0)
 		f[define_cmd(stack.line, &stack)](&stack);
-	check_order(stack.top[1] == -1 && stack.a, 0, stack.top[0])
+	stack.top[1] == -1 && check_order(stack.a, 0, stack.top[0])
 		? write(2, "OK\n", 3) : write(2, "KO\n", 3);
 	return (ps_exit(1, &stack));
 }

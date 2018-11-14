@@ -19,13 +19,9 @@
 
 void	do_sa(t_ps *stack)
 {
-	int	tmp;
-
 	if (TA <= 0)
 		return ;
-	tmp = stack->a[TA];
-	stack->a[TA] = stack->a[TA - 1];
-	stack->a[TA - 1] = tmp;
+	ft_swap(&SA[TA], &SB[TB - 1]);
 	if (stack->print)
 		write(1, "sa\n", 3);
 	if (stack->status)
