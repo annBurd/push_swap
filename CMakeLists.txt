@@ -11,11 +11,13 @@ set(SOURCE_FILES
 #        libft/ft_strequ.c
 
 #        src/checker.c
-        src/check_array.c
         src/push_swap.c
-        src/do_both.c
+
         src/do_a.c
         src/do_b.c
+        src/do_both.c
+        src/ps_check.c
+        src/ps_init.c
         src/supporting_funcs.c
         src/try_rotate.c)
 link_directories(libft)

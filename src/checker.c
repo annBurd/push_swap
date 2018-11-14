@@ -6,13 +6,13 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 19:04:34 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/14 18:50:32 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/14 21:21:29 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int	define_cmd(char *s, t_ps *stack)
+static int	define_cmd(char *s, t_ps *stack)
 {
 	if (ft_strequ(s, "sa"))
 		return (0);
@@ -41,14 +41,13 @@ int	define_cmd(char *s, t_ps *stack)
 	return (-1);
 }
 
-int	main(int argc, char **argv)
+int			main(int argc, char **argv)
 {
 	t_ps		stack;
 	static cmd	f[11];
 	int 		fd;
 
-	argc == 1 ? ps_exit(0, NULL) : fd = ps_flags(&stack, &argv, &argc, 0);
-	ps_init(&stack, argv, argc);
+	argc == 1 ? ps_exit(0, NULL) : fd = ps_init(&stack, &argv, &argc, 0);
 	f[0] = do_sa;
 	f[1] = do_sb;
 	f[2] = do_ss;

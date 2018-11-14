@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/11 19:42:08 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/14 20:47:32 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/14 21:32:07 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 //	}
 //}
 
-void	sort_3(t_ps *stack, int size)
+static void	sort_3(t_ps *stack, int size)
 {
 	if (size == MIN && MAX == 0)
 		return ;
@@ -57,18 +57,16 @@ void	sort_3(t_ps *stack, int size)
 	}
 }
 
-void	sort_6(t_ps *stack, int size)
+static void	sort_6(t_ps *stack, int size)
 {
 
 }
 
-int 	main(int argc, char **argv)
+int 		main(int argc, char **argv)
 {
 	t_ps		stack;
 
-	argc == 1 ? ps_exit(0, NULL) : ps_flags(&stack, &argv, &argc, 1);
-	argc == 1 && ps_exit(0, NULL);
-	ps_init(&stack, argv, argc);
+	argc == 1 ? ps_exit(0, NULL) : ps_init(&stack, &argv, &argc, 1);
 	printf("push_swap\n");
 	stack.min = check_min(stack.a, stack.top[0]);
 	stack.max = check_max(stack.a, stack.top[0]);

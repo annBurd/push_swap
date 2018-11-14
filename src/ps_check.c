@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_array.c                                      :+:      :+:    :+:   */
+/*   ps_check.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 15:10:13 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/14 19:25:56 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/14 21:43:54 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	check_min(int *tab, int size)
 	i = 0;
 	value = tab[i];
 	res = i;
-	while(i < size)
+	while (i < size)
 	{
 		if (value > tab[i + 1])
 		{
@@ -42,28 +42,16 @@ int	check_max(int *tab, int size)
 	i = 0;
 	value = tab[i];
 	res = i;
-	while(i < size)
+	while (i < size)
 	{
 		if (value < tab[i + 1])
 		{
 			value = tab[i + 1];
 			res = i + 1;
-
 		}
 		i++;
 	}
 	return (res);
-}
-
-int	check_duplicates(int *tab, int nbr, int size)
-{
-	int i;
-
-	i = -1;
-	while (++i < size)
-		if (tab[i] == nbr)
-			return (0);
-	return (1);
 }
 
 int	check_order(int *tab, int i, int end)
@@ -77,7 +65,7 @@ int	check_order(int *tab, int i, int end)
 	return (1);
 }
 
-int	check_reverse_order(int *tab, int i, int end) //for stack B ??
+int	check_reverse_order(int *tab, int i, int end)
 {
 	while (i < end)
 	{

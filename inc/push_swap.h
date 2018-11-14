@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 18:48:52 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/14 20:10:57 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/14 21:38:53 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,31 +44,26 @@ typedef void	(*cmd)(t_ps *stack);
 ** push_swap
 */
 
-void 	ps_sort(t_ps *stack, int start, int end);
-void	ps_choose_cmd(t_ps *stack, int start, int end);
+//void 	ps_sort(t_ps *stack, int start, int end);
+//void	ps_choose_cmd(t_ps *stack, int start, int end);
 
-void	sort_3(t_ps *stack, int size);
-void	sort_6(t_ps *stack, int size);
+//void	sort_6(t_ps *stack, int size);
 
 /*
 ** checker
 */
 
-int 	define_cmd(char *s, t_ps *stack);
 
 /*
 ** common
 */
 
-int 	ps_flags(t_ps *stack, char ***argv, int *argc, short p);
-int		ps_init(t_ps *stack, char **arg, int size);
-int		ps_get_int(const char *s, intmax_t *result);
+int 	ps_init(t_ps *stack, char ***argv, int *argc, short p);
 void	ps_print_stack(t_ps *stack);
-int		ps_exit(short code, t_ps *stack);
+int		ps_exit(t_ps *stack, short code);
 
-int		check_duplicates(int *tab, int nbr, int size);
 int		check_order(int *tab, int start, int end);
-int		check_reverse_order(int *tab, int i, int end);
+int		check_reverse_order(int *tab, int start, int end);//for stack B
 int		check_min(int *tab, int size);
 int		check_max(int *tab, int size);
 int		check_intermediate_values(int *tab, int end);
