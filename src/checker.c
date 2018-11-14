@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 19:04:34 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/14 17:49:09 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/14 18:50:32 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,7 @@ int	main(int argc, char **argv)
 	f[9] = do_rrb;
 	f[10] = do_rrr;
 	while (ft_getline(fd, &stack.line) > 0)
-	{
 		f[define_cmd(stack.line, &stack)](&stack);
-		print_stack(&stack);
-	}
 	check_order(stack.top[1] == -1 && stack.a, 0, stack.top[0])
 		? write(2, "OK\n", 3) : write(2, "KO\n", 3);
 	return (ps_exit(1, &stack));

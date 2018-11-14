@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 20:40:05 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/14 19:07:01 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/14 19:55:51 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,7 @@
 
 int		ps_exit(short code, t_ps *stack)
 {
-	if (!code)
-		exit(0);
-	else
+	if (code)
 	{
 		free(stack->a);
 		if (code == -2 || code == 1)
@@ -34,12 +32,9 @@ int		ps_exit(short code, t_ps *stack)
 			free(stack->line);
 		}
 		if (code < 0)
-		{
 			write(2, "Error\n", 6);
-			exit(0);
-		}
 	}
-	return (0);
+	exit(0);
 }
 
 void	ps_print_stack(t_ps *stack)
