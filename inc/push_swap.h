@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 18:48:52 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/14 16:30:26 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/14 16:30:32 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	ps_choose_cmd(t_ps *stack, int start, int end, int min, int max);
 */
 
 int 	define_cmd(char *s, t_ps *stack);
+int 	define_flags(t_ps *stack, char ***argv, int *argc);
 
 /*
 ** common

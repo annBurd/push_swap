@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/11 19:42:08 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/14 15:41:21 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/14 15:49:44 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void 	ps_sort(t_ps *stack, int start, int end)
 		if (TB >= 0 && check_order(SA, start, end) &&
 				(!TB || check_reverse_order(SB, 0, TB)))
 			while (TB >= 0)
-				do_pb(stack, true);
+				cmd_pb(stack, 1);
 		if (end == TA && check_order(SA, 0, TA))
 			break ;
 	}
