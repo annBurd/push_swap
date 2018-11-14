@@ -33,7 +33,7 @@ int		ps_exit(t_ps *stack, short code)
 		}
 		code < 0 && write(2, "Error\n", 6);
 	}
-	exit(0);
+	exit(code > 0 ? 0 : 1);
 }
 
 void	ps_print_stack(t_ps *stack)
