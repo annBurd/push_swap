@@ -8,14 +8,16 @@ set(SOURCE_FILES
         inc/libft.h
         inc/push_swap.h
 
-        libft/ft_strequ.c
+#        libft/ft_strequ.c
 
 #        src/checker.c
+        src/checking_values.c
         src/push_swap.c
         src/command.c
         src/command_a.c
         src/command_b.c
-        src/validation.c)
+        src/validation.c
+        src/try_rotate.c)
 link_directories(libft)
 add_executable(push_swap ${SOURCE_FILES})
 target_link_libraries(push_swap -lft) # linkage

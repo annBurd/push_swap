@@ -93,7 +93,7 @@ int	validate_order(int *tab, int i, int end)
 	return (1);
 }
 
-int	validate_arg(t_ps *stack, char **arg, int size)
+int	ps_init(t_ps *stack, char **arg, int size)
 {
 	intmax_t	t;
 	int			n;

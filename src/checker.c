@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 19:04:34 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/11 19:09:09 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/14 15:18:57 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,18 @@ int	main(int argc, char **argv)
 	t_ps		stack;
 	static cmd	f[11];
 
-	argc == 1 ? ps_exit(0, NULL) : validate_arg(&stack, ++argv, --argc);
-	f[0] = do_swap_a;
-	f[1] = do_swap_b;
-	f[2] = do_swap_both;
-	f[3] = do_push_a;
-	f[4] = do_push_b;
-	f[5] = do_rotate_a;
-	f[6] = do_rotate_b;
-	f[7] = do_rotate_both;
-	f[8] = do_reverse_rotate_a;
-	f[9] = do_reverse_rotate_b;
-	f[10] = do_reverse_rotate_both;
+	argc == 1 ? ps_exit(0, NULL) : ps_init(&stack, ++argv, --argc);
+	f[0] = do_sa;
+	f[1] = do_sb;
+	f[2] = do_ss;
+	f[3] = do_pa;
+	f[4] = do_pb;
+	f[5] = do_ra;
+	f[6] = do_rb;
+	f[7] = do_rr;
+	f[8] = do_rra;
+	f[9] = do_rrb;
+	f[10] = do_rrr;
 	while (ft_getline(0, &stack.line) > 0)
 	{
 		f[define_cmd(stack.line, &stack)](&stack, false);

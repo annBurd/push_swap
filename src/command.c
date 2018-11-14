@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 18:29:47 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/10 19:16:03 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/14 14:43:56 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,26 +46,26 @@
 ** rrr : rra and rrb at the same time.
 */
 
-void	do_swap_both(t_ps *stack, t_bool print)
+void	do_ss(t_ps *stack, t_bool print)
 {
-	do_swap_a(stack, false);
-	do_swap_b(stack, false);
+	do_sa(stack, false);
+	do_sb(stack, false);
 	if (print)
 		write(1, "ss\n", 3);
 }
 
-void	do_rotate_both(t_ps *stack, t_bool print)
+void	do_rr(t_ps *stack, t_bool print)
 {
-	do_rotate_a(stack, false);
-	do_rotate_b(stack, false);
+	do_ra(stack, false);
+	do_rb(stack, false);
 	if (print)
 		write(1, "rr\n", 3);
 }
 
-void	do_reverse_rotate_both(t_ps *stack, t_bool print)
+void	do_rrr(t_ps *stack, t_bool print)
 {
-	do_reverse_rotate_a(stack, false);
-	do_reverse_rotate_b(stack, false);
+	do_rra(stack, false);
+	do_rrb(stack, false);
 	if (print)
 		write(1, "rrr\n", 4);
 }
@@ -75,12 +75,18 @@ void	print_stack(t_ps *stack)
 	int	i;
 
 	i = TA;
-	printf("A:");
+	write(1, "A:", 2);
 	while (i >= 0)
-		printf(" %d", stack->a[i--]);
-	printf("\nB:");
+	{
+		write(1, " ", 1);
+		ft_putnbr(stack->a[i--]);
+	}
+	write(1, "\nB:", 3);
 	i = TB;
 	while (i >= 0)
-		printf(" %d", stack->b[i--]);
-	printf("\n");
+	{
+		write(1, " ", 1);
+		ft_putnbr(stack->b[i--]);
+	}
+	write(1, "\n", 1);
 }
