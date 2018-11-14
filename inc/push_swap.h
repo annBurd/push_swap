@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 18:48:52 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/14 15:54:08 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/14 16:30:26 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 #include <stdio.h> //printf
 
-#define TA stack->top[0] //current (end)
+#define TA stack->top[0]
 #define TB stack->top[1]
 #define SA stack->a
 #define SB stack->b
@@ -30,15 +30,10 @@ typedef struct	s_ps
 	int 		*b;
 	char 		*line;
 	int			top[2];
+	short		status;
 }				t_ps;
 
-typedef enum	e_bool //do I really need it?
-{
-	true = 1,
-	false = 0
-}				t_bool;
-
-typedef void	(*cmd)(t_ps *stack, t_bool print);
+typedef void	(*cmd)(t_ps *stack, short print);
 
 /*
 ** push_swap
@@ -70,16 +65,16 @@ int		check_min(int *tab, int size);
 int		check_max(int *tab, int size);
 int		check_intermediate_values(int *tab, int end);
 
-void	do_sa(t_ps *stack, t_bool print);
-void	do_sb(t_ps *stack, t_bool print);
-void	do_ss(t_ps *stack, t_bool print);
-void	do_pa(t_ps *stack, t_bool print);
-void	do_pb(t_ps *stack, t_bool print);
-void	do_ra(t_ps *stack, t_bool print);
-void	do_rb(t_ps *stack, t_bool print);
-void	do_rr(t_ps *stack, t_bool print);
-void	do_rra(t_ps *stack, t_bool print);
-void	do_rrb(t_ps *stack, t_bool print);
-void	do_rrr(t_ps *stack, t_bool print);
+void	cmd_sa(t_ps *stack, short print);
+void	cmd_sb(t_ps *stack, short print);
+void	cmd_ss(t_ps *stack, short print);
+void	cmd_pa(t_ps *stack, short print);
+void	cmd_pb(t_ps *stack, short print);
+void	cmd_ra(t_ps *stack, short print);
+void	cmd_rb(t_ps *stack, short print);
+void	cmd_rr(t_ps *stack, short print);
+void	cmd_rra(t_ps *stack, short print);
+void	cmd_rrb(t_ps *stack, short print);
+void	cmd_rrr(t_ps *stack, short print);
 
 #endif

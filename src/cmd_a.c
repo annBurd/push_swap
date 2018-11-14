@@ -6,13 +6,18 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 19:57:56 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/14 15:52:43 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/14 16:30:16 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	do_sa(t_ps *stack, t_bool print)
+/*
+** sa : swap a - swap the first 2 elements at the top of stack a.
+** 		Do nothing if there is only one or no elements).
+*/
+
+void	cmd_sa(t_ps *stack, short print)
 {
 	int	tmp;
 
@@ -21,18 +26,36 @@ void	do_sa(t_ps *stack, t_bool print)
 	stack->a[TA - 1] = tmp;
 	if (print)
 		write(1, "sa\n", 3);
+	if (stack->status)
+		ps_print_stack(stack);
 }
 
-void	do_pa(t_ps *stack, t_bool print)
+/*
+** pa : push a - take the first element at the top of b
+** 		and put it at the top of a.
+** 		Do nothing if b is empty.
+*/
+
+void	cmd_pa(t_ps *stack, short print)
 {
-	TB++;
-	stack->b[TB] = stack->a[TA];
-	TA--;
+	if (TA >= 0)
+	{
+		TB++;
+		stack->b[TB] = stack->a[TA];
+		TA--;
+	}
 	if (print)
 		write(1, "pa\n", 3);
+	if (stack->status)
+		ps_print_stack(stack);
 }
 
-void	do_ra(t_ps *stack, t_bool print)
+/*
+** ra : rotate a - shift up all elements of stack a by 1.
+** 		The first element becomes the last one.
+*/
+
+void	cmd_ra(t_ps *stack, short print)
 {
 	int	tmp;
 	int n;
@@ -49,9 +72,16 @@ void	do_ra(t_ps *stack, t_bool print)
 	}
 	if (print)
 		write(1, "ra\n", 3);
+	if (stack->status)
+		ps_print_stack(stack);
 }
 
-void	do_rra(t_ps *stack, t_bool print)
+/*
+** rra : reverse rotate a - shift down all elements of stack a by 1.
+** 		The last element becomes the first one.
+*/
+
+void	cmd_rra(t_ps *stack, short print)
 {
 	int tmp;
 	int n;
@@ -68,4 +98,6 @@ void	do_rra(t_ps *stack, t_bool print)
 	}
 	if (print)
 		write(1, "rra\n", 4);
+	if (stack->status)
+		ps_print_stack(stack);
 }

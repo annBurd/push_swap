@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 19:04:34 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/14 15:18:57 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/14 15:41:21 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,17 +47,17 @@ int	main(int argc, char **argv)
 	static cmd	f[11];
 
 	argc == 1 ? ps_exit(0, NULL) : ps_init(&stack, ++argv, --argc);
-	f[0] = do_sa;
-	f[1] = do_sb;
-	f[2] = do_ss;
-	f[3] = do_pa;
-	f[4] = do_pb;
-	f[5] = do_ra;
-	f[6] = do_rb;
-	f[7] = do_rr;
-	f[8] = do_rra;
-	f[9] = do_rrb;
-	f[10] = do_rrr;
+	f[0] = cmd_sa;
+	f[1] = cmd_sb;
+	f[2] = cmd_ss;
+	f[3] = cmd_pa;
+	f[4] = cmd_pb;
+	f[5] = cmd_ra;
+	f[6] = cmd_rb;
+	f[7] = cmd_rr;
+	f[8] = cmd_rra;
+	f[9] = cmd_rrb;
+	f[10] = cmd_rrr;
 	while (ft_getline(0, &stack.line) > 0)
 	{
 		f[define_cmd(stack.line, &stack)](&stack, false);
