@@ -58,7 +58,7 @@ static int	ps_fill(t_ps *stack, char **arg, int size)
 	{
 		if (!ps_get_int(arg[n], &t) ||
 			!check_duplicates(stack->a, (int)t, TA + 1))
-			ps_exit(-1, stack);
+			ps_exit(stack, -1);
 		stack->a[++TA] = (int)t;
 		n--;
 	}
@@ -78,16 +78,18 @@ int			ps_init(t_ps *stack, char ***argv, int *argc, short p)
 	stack->status = 0;
 	while (argv[0][i][0] == '-')
 	{
-		if (argv[0][i][1] == 's')
+		if (ft_strequ(argv[0][i], "-s"))
 			stack->status = 1;
-		else if (argv[0][i][1] == 'f')
+		else if (ft_strequ(argv[0][i], "-f"))
 			fd = open(argv[0][++i], O_RDONLY);
+		else
+			ps_exit(NULL, -1);
 		i++;
 	}
 	(*argv) += i;
 	(*argc) -= i;
 	if (stack->print && *argc == 1)
-		ps_exit(1, NULL);
+		ps_exit(NULL, 0);
 	ps_fill(stack, *argv, *argc);
 	return (fd);
 }

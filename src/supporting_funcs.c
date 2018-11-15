@@ -23,17 +23,16 @@
 
 int		ps_exit(t_ps *stack, short code)
 {
-	if (code && stack)
+	if (stack)
 	{
 		free(stack->a);
-		if (code == -2 || code == 1)
-		{
+		if (code != -1)
 			free(stack->b);
+		if (!stack->print)
 			free(stack->line);
-		}
-		code < 0 && write(2, "Error\n", 6);
 	}
-	code > 0 ? return (0) : exit(1);
+	code < 0 && write(2, "Error\n", 6);
+	exit(code);
 }
 
 void	ps_print_stack(t_ps *stack)

@@ -23,8 +23,6 @@
 #define TB stack->top[1]
 #define SA stack->a
 #define SB stack->b
-#define MIN stack->min
-#define MAX stack->max
 
 typedef struct	s_ps
 {
@@ -34,8 +32,6 @@ typedef struct	s_ps
 	int			top[2];
 	short		print;
 	short		status;
-	int 		min;
-	int 		max;
 }				t_ps;
 
 typedef void	(*cmd)(t_ps *stack);

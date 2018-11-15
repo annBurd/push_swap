@@ -3,12 +3,17 @@ project(push_swap C)
 
 set(CMAKE_C_STANDARD 99)
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -Werror -Ipthreads")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -Ipthreads")
+#set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -Werror -Ipthreads")
 set(SOURCE_FILES
+        inc/color.h
         inc/libft.h
         inc/push_swap.h
 
-#        libft/ft_strequ.c
+        libft/ft_strequ.c
+        libft/ft_swap.c
+        libft/ft_putnbr.c
+        libft/ft_putchar.c
 
 #        src/checker.c
         src/push_swap.c

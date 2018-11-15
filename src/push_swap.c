@@ -37,22 +37,25 @@
 
 static void	sort_3(t_ps *stack, int size)
 {
-	if (size == MIN && MAX == 0)
+	const int	min = check_min(stack->a, TA);
+	const int	max = check_max(stack->a, TA);
+
+	if (size == min && max == 0)
 		return ;
-	else if (size == 1 && !MIN)
+	else if (size == 1 && !min)
 		do_sa(stack);
-	else if (MIN == 2 && MAX == 1)
+	else if (min == 2 && max == 1)
 	{
 		do_pb(stack);
 		do_sa(stack);
 		do_pa(stack);
 	}
-	else if (MIN == 0 && MAX == 1)
+	else if (min == 0 && max == 1)
 		do_rra(stack);
-	else if (MAX == 2)
+	else if (max == 2)
 	{
 		do_ra(stack);
-		if (!MIN)
+		if (!min)
 			do_sa(stack);
 	}
 }
@@ -66,10 +69,7 @@ int 		main(int argc, char **argv)
 {
 	t_ps		stack;
 
-	argc == 1 ? ps_exit(0, NULL) : ps_init(&stack, &argv, &argc, 1);
-	printf("push_swap\n");
-	stack.min = check_min(stack.a, stack.top[0]);
-	stack.max = check_max(stack.a, stack.top[0]);
+	argc == 1 ? ps_exit(NULL, 1) : ps_init(&stack, &argv, &argc, 1);
 	if (argc <= 3)
 		sort_3(&stack, stack.top[0]);
 	else if (argc <= 6)
@@ -81,5 +81,5 @@ int 		main(int argc, char **argv)
 
 
 //	ps_sort(&stack, 0, stack.top[0]);
-	return (0);
+	return (ps_exit(&stack, 0));
 }

@@ -37,7 +37,7 @@ static int	define_cmd(char *s, t_ps *stack)
 	else if (ft_strequ(s, "rrr"))
 		return (10);
 	else
-		ps_exit(-2, stack);
+		ps_exit(stack, -2);
 	return (-1);
 }
 
@@ -47,7 +47,7 @@ int			main(int argc, char **argv)
 	static cmd	f[11];
 	int 		fd;
 
-	argc == 1 ? ps_exit(0, NULL) : fd = ps_init(&stack, &argv, &argc, 0);
+	argc == 1 ? ps_exit(NULL, 1) : fd = ps_init(&stack, &argv, &argc, 0);
 	f[0] = do_sa;
 	f[1] = do_sb;
 	f[2] = do_ss;
@@ -63,5 +63,5 @@ int			main(int argc, char **argv)
 		f[define_cmd(stack.line, &stack)](&stack);
 	stack.top[1] == -1 && check_order(stack.a, 0, stack.top[0])
 		? write(2, "OK\n", 3) : write(2, "KO\n", 3);
-	return (ps_exit(1, &stack));
+	return (ps_exit(&stack, 0));
 }
