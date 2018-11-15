@@ -23,7 +23,7 @@
 
 int		ps_exit(t_ps *stack, short code)
 {
-	if (code)
+	if (code && stack)
 	{
 		free(stack->a);
 		if (code == -2 || code == 1)

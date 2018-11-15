@@ -87,7 +87,7 @@ int			ps_init(t_ps *stack, char ***argv, int *argc, short p)
 	(*argv) += i;
 	(*argc) -= i;
 	if (stack->print && *argc == 1)
-		ps_exit(0, NULL);
+		ps_exit(1, NULL);
 	ps_fill(stack, *argv, *argc);
 	return (fd);
 }
