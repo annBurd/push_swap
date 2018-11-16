@@ -24,7 +24,7 @@ set(SOURCE_FILES
         src/ps_check.c
         src/ps_init.c
         src/supporting_funcs.c
-        src/try_rotate.c)
+        src/try_rotate.c src/sort_6.c)
 link_directories(libft)
 add_executable(push_swap ${SOURCE_FILES})
 target_link_libraries(push_swap -lft) # linkage
