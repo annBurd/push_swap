@@ -6,13 +6,13 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 19:26:31 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/16 21:13:26 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/16 21:23:20 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void		sort_3a(t_ps *stack, const int size)
+void		sort_3(t_ps *stack, const int size)
 {
 	const int	min = ps_min_index(stack->a, TA);
 	const int	max = ps_max_index(stack->a, TA);
@@ -46,7 +46,7 @@ static void	sort_3ab(t_ps *stack, const int size)
 
 	if (minA == size && !maxA && !minB && maxB == size)
 		return ;
-//	else if ()
+	else if ()
 }
 
 void	sort_6(t_ps *stack, int size)
@@ -84,7 +84,7 @@ void	sort_6(t_ps *stack, int size)
 
 
 	if (TA == 2)
-		is_ascending_order(SB, TB) ? sort_3a(stack, TB) : sort_3ab(stack, TB);
+		is_ascending_order(SB, TB) ? sort_3(stack, TB) : sort_3ab(stack, TB);
 
 
 	while (TB > -1)

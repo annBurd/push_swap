@@ -6,15 +6,28 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 15:08:13 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/16 19:26:25 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/16 21:49:00 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int 	get_next_value(int *tab, int cur)
-{
+//int 	get_next_value(int *tab, int i_cur)
+//{
+//
+//}
 
+void	ps_move_min_to_top_A(t_ps *stack, int size)//needs test
+{
+	int 		min;
+
+	min = ps_min_index(SA, size);
+	if (min > TA / 2)
+		while (TA - min-- > 0)
+			do_rra(stack);
+	else
+		while (min-- >= 0)
+			do_ra(stack);
 }
 
 int		is_no_intermediate_values(int *tab, int end)

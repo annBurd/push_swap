@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 18:48:52 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/16 21:27:35 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/16 21:33:06 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef void	(*cmd)(t_ps *);
 //void 	ps_sort(t_ps *stack, int start, int end);
 
 
-void	sort_3a(t_ps *, int);
+void	sort_3(t_ps *, int);
 //void	sort_3ab(t_ps *, int);
 void	sort_6(t_ps *stack, int size);
 
