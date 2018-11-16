@@ -42,16 +42,10 @@ void	ps_print_stack(t_ps *stack)
 	i = TA;
 	write(1, "A:", 2);
 	while (i >= 0)
-	{
-		write(1, " ", 1);
-		ft_putnbr(stack->a[i--]);
-	}
+		printf(" %d", stack->a[i--]);
 	write(1, "\nB:", 3);
 	i = TB;
 	while (i >= 0)
-	{
-		write(1, " ", 1);
-		ft_putnbr(stack->b[i--]);
-	}
+		printf(" %d", stack->b[i--]);
 	write(1, "\n", 1);
 }

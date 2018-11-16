@@ -57,6 +57,8 @@ size_t			ft_nbrlen(intmax_t value, int base);
 size_t			ft_nbrulen(uintmax_t value, int base);
 char			*ft_itoa_base(intmax_t value, short base);
 int				ft_atoi_base(const char *str, short base);
+int				is_ascending_order(int *tab, int size);
+int				is_descending_order(int *tab, int size);
 
 void			*ft_memalloc(size_t size);
 void			ft_memdel(void **ap);

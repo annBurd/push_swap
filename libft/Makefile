@@ -6,7 +6,7 @@
 #    By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/27 19:02:29 by aburdeni          #+#    #+#              #
-#    Updated: 2017/12/25 19:30:08 by aburdeni         ###   ########.fr        #
+#    Updated: 2018/11/16 21:28:53 by aburdeni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,8 @@ SRC = ft_atoi.c \
 	ft_atoi_base.c \
 	ft_bzero.c \
 	ft_getline.c \
+	ft_is_descending_order.c \
+	ft_is_ascending_order.c \
 	ft_isalnum.c \
 	ft_isalpha.c \
 	ft_isascii.c \

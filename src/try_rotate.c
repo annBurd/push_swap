@@ -6,35 +6,44 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 15:08:13 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/14 18:15:01 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/16 19:26:25 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int		check_intermediate_values(int *tab, int end)
+int 	get_next_value(int *tab, int cur)
+{
+
+}
+
+int		is_no_intermediate_values(int *tab, int end)
 {
 	int 		i;
 	const int	first = tab[end];
 	const int	last = tab[0];
 	int			value;
 
-	i = 1;
-	while(i < end)
+	i = 0;
+	while(++i < end)
 	{
 		value = tab[i];
 		if (value > last && value < first)
 			return (0);
-		i++;
 	}
 	return (1);
 }
 
 //int 	choose_rotate(int *tab, int end)
 //{
+//	const int min = find_min(tab, end);
+//	const int max = find_max(tab, end);
+//
+//
+//
 //	return (1); //1 for simple rotate otherway if 0 it will be reverse
 //}
-//
+
 //void	try_rotate(t_ps *stack)
 //{
 //	const int	a = check_intermediate_values(SA, TA);

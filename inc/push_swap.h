@@ -6,7 +6,7 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 18:48:52 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/16 19:43:58 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/16 21:27:35 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,15 @@ typedef void	(*cmd)(t_ps *);
 
 void	sort_3a(t_ps *, int);
 //void	sort_3ab(t_ps *, int);
-void	sort_6(t_ps *, int);
+void	sort_6(t_ps *stack, int size);
 
 
 int 	ps_init(t_ps *, char ***, int *, short);
 void	ps_print_stack(t_ps *);
 int		ps_exit(t_ps *, short);
 
-int		check_order(int *, int, int);
-int		check_order_b(int *, int, int);//for stack B
-int		find_min(int *, int);
-int		find_max(int *, int);
+int		ps_min_index(int *, int);
+int		ps_max_index(int *, int);
 int		is_no_intermediate_values(int *, int);
 
 void	do_sa(t_ps *);

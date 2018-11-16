@@ -6,13 +6,13 @@
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 15:10:13 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/11/14 21:43:54 by aburdeni         ###   ########.fr       */
+/*   Updated: 2018/11/16 21:27:35 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int	check_min(int *tab, int size)
+int	ps_min_index(int *tab, const int size)
 {
 	int i;
 	int value;
@@ -33,7 +33,7 @@ int	check_min(int *tab, int size)
 	return (res);
 }
 
-int	check_max(int *tab, int size)
+int	ps_max_index(int *tab, const int size)
 {
 	int i;
 	int value;
@@ -52,26 +52,4 @@ int	check_max(int *tab, int size)
 		i++;
 	}
 	return (res);
-}
-
-int	check_order(int *tab, int i, int end)
-{
-	while (i < end)
-	{
-		if (tab[i] < tab[i + 1])
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-int	check_reverse_order(int *tab, int i, int end)
-{
-	while (i < end)
-	{
-		if (tab[i] > tab[i + 1])
-			return (0);
-		i++;
-	}
-	return (1);
 }

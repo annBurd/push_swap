@@ -14,6 +14,8 @@ set(SOURCE_FILES
         libft/ft_swap.c
         libft/ft_putnbr.c
         libft/ft_putchar.c
+        libft/ft_is_ascending_order.c
+        libft/ft_is_descending_order.c
 
 #        src/checker.c
         src/push_swap.c
@@ -24,7 +26,8 @@ set(SOURCE_FILES
         src/ps_check.c
         src/ps_init.c
         src/supporting_funcs.c
-        src/try_rotate.c src/sort_6.c)
+        src/try_rotate.c
+        src/sort_6.c)
 link_directories(libft)
 add_executable(push_swap ${SOURCE_FILES})
 target_link_libraries(push_swap -lft) # linkage
